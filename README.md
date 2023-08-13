@@ -1,8 +1,8 @@
-![image](https://github.com/Mohsin-mw/ConnectVerse/assets/122507740/9e4067b9-b170-41b6-a6ed-886a736d9aae)# ConnectVerse
+# ConnectVerse
 
 Unveil ConnectVerse – an exquisite chat application meticulously crafted using the triumvirate of React, Supabase, and TypeScript. Emanating sophistication and innovation, ConnectVerse redefines real-time communication, seamlessly converging cutting-edge technologies to engender a dynamic and immersive platform, reshaping the landscape of modern connectivity.
 
-![image](https://github.com/Mohsin-mw/ConnectVerse/assets/122507740/25ab4e49-4c0d-41f4-8511-7f8c50350d2d)
+![image](https://github.com/Mohsin-mw/ConnectVerse/assets/122507740/9e4067b9-b170-41b6-a6ed-886a736d9aae)
 
 
 
