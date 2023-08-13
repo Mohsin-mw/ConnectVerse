@@ -10,9 +10,9 @@ Please note that this project adheres to the [Code of Conduct](CODE_OF_CONDUCT.m
 
 Contributions come in various forms, from reporting issues and suggesting enhancements to submitting pull requests with code changes. Here's how you can get involved:
 
-1. **Report Issues:** If you encounter a bug, inconsistency, or have a general suggestion, please open an issue on our [issue tracker](https://github.com/your-username/ConnectVerse/issues). Be sure to include a descriptive title and a clear explanation.
+1. **Report Issues:** If you encounter a bug, inconsistency, or have a general suggestion, please open an issue on our [issue tracker](https://github.com/Mohsin-mw/ConnectVerse/issues). Be sure to include a descriptive title and a clear explanation.
 
-2. **Feature Requests:** Feel free to propose new features or improvements by creating an issue on the [issue tracker](https://github.com/your-username/ConnectVerse/issues). Describe the feature's purpose and how it would benefit the project.
+2. **Feature Requests:** Feel free to propose new features or improvements by creating an issue on the [issue tracker](https://github.com/Mohsin-mw/ConnectVerse/issues). Describe the feature's purpose and how it would benefit the project.
 
 3. **Pull Requests:** If you're interested in contributing code directly, fork the repository and create a pull request. Before submitting, ensure your code adheres to the existing coding style and passes tests. Provide a clear description of your changes and reference any related issues.
 
