@@ -35,7 +35,7 @@ Contributions come in various forms, from reporting issues and suggesting enhanc
 
 ## License
 
-By contributing to ConnectVerse, you agree that your contributions will be licensed under the [MIT License](LICENSE).
+By contributing to ConnectVerse, you agree that your contributions will be licensed under the [MIT License](https://github.com/Mohsin-mw/ConnectVerse/blob/main/LICENSE.txt).
 
 ## Contact
 
