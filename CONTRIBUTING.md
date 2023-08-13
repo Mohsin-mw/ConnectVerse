@@ -4,7 +4,7 @@ Thank you for considering contributing to ConnectVerse! Your contributions help 
 
 ## Code of Conduct
 
-Please note that this project adheres to the [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report any unacceptable behavior to [null.mmw@gmail.com](mailto:null.mmw@gmail.com).
+Please note that this project adheres to the [Code of Conduct](https://github.com/Mohsin-mw/ConnectVerse/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report any unacceptable behavior to [null.mmw@gmail.com](mailto:null.mmw@gmail.com).
 
 ## How to Contribute
 
