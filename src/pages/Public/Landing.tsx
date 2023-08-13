@@ -6,6 +6,8 @@ import {
   Hero,
   Navbar,
 } from "../../components";
+import featureOne from "../../assets/featureOne.png";
+import featureTwo from "../../assets/featureTwo.png";
 
 /**
  * Landing page component that introduces the Discord clone.
@@ -16,7 +18,7 @@ const Landing = () => {
   return (
     <div>
       {/* Header Section */}
-      <div className="bg-[url(https://i.ibb.co/Tvn7DbX/Backsplash.png)] bg-cover bg-top ">
+      <div className={`bg-primary bg-cover bg-top `}>
         {/* Navigation Bar */}
         <Navbar />
 
@@ -41,10 +43,7 @@ const Landing = () => {
             {/* Feature Image */}
             <div className="mt-12 sm:mt-16 lg:col-start-1 lg:mt-0">
               <div className="-ml-48 pr-4 sm:pr-6 md:-ml-16 lg:relative lg:m-0 lg:h-full lg:px-0">
-                <FeatureImage
-                  imageUrl="https://i.ibb.co/89rjKW7/Darkmode.png"
-                  alignImage="right"
-                />
+                <FeatureImage imageUrl={featureTwo} alignImage="right" />
               </div>
             </div>
           </Feature>
@@ -52,7 +51,7 @@ const Landing = () => {
           {/* Feature 2 */}
           <Feature>
             <FeatureText
-              title="Interaction with Dynamic Discord Chats"
+              title="Interaction with Dynamic Chats"
               description="Chats Description: Revolutionize your community
              interactions using our innovative Discord chat feature.
              Engage in real-time conversations, share multimedia
@@ -64,10 +63,7 @@ const Landing = () => {
             {/* Feature Image */}
             <div className="mt-12 sm:mt-16 lg:mt-0">
               <div className="-mr-48 pl-4 sm:pl-6 md:-mr-16 lg:relative lg:m-0 lg:h-full lg:px-0">
-                <FeatureImage
-                  imageUrl="https://i.ibb.co/mDpY6W8/Darkmode-1.png"
-                  alignImage="left"
-                />
+                <FeatureImage imageUrl={featureOne} alignImage="left" />
               </div>
             </div>
           </Feature>

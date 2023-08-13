@@ -13,6 +13,10 @@ export default {
         "passion-one": ['"Passion One"', "cursive"],
         poppins: ['"poppins"', "cursive"],
       },
+      backgroundImage: {
+        primary: "url(src/assets/PrimaryBackground.png)",
+        auth: "url(src/assets/authBackground.png)",
+      },
     },
   },
   plugins: [],

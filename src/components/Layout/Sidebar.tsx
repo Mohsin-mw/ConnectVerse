@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useServers from "../../hooks/useServers";
+import logo from "../../assets/logo.png";
 
 /**
  * Sidebar component that displays navigation links and icons.
@@ -16,10 +17,7 @@ const Sidebar = () => {
           <div className="flex-1">
             {/* Discord Logo */}
             <div className="flex items-center justify-center py-4 border-b-dark-charcoal border-b-2">
-              <img
-                className="h-8 w-auto"
-                src="https://i.ibb.co/V9KPjS7/discord-mark-white.png"
-              />
+              <img className="h-8 scale-150 w-auto" src={logo} />
             </div>
 
             {/* Navigation Links */}

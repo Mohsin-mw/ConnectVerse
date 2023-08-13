@@ -23,7 +23,8 @@ const Footer = () => {
         </div>
         {/* Copyright Information */}
         <p className="mt-8 text-center text-base text-gray-400">
-          &copy; {new Date().getFullYear()} Discord, Inc. All rights reserved.
+          &copy; {new Date().getFullYear()} ConnectVerse, Inc. All rights
+          reserved.
         </p>
       </div>
     </footer>

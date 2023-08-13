@@ -1,3 +1,5 @@
+import logo from "../../assets/discordPrimary.png";
+
 /**
  * Logo Component
  *
@@ -9,17 +11,11 @@
 import React from "react";
 
 interface LogoProps {
-  className: string;
+  className?: string;
 }
 
 const Logo: React.FC<LogoProps> = ({ className }: LogoProps): JSX.Element => {
-  return (
-    <img
-      className={className}
-      src="https://i.ibb.co/T2Qy1NQ/discord-logo-blue.png"
-      alt="Application Logo"
-    />
-  );
+  return <img className={className} src={logo} alt="Application Logo" />;
 };
 
 export default Logo;

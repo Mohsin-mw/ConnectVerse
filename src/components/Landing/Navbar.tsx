@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/Logo.svg";
+import logo from "../../assets/logo.png";
 import { Button } from "..";
 
 /**
@@ -13,7 +13,11 @@ const Navbar = () => {
       <div className="flex justify-start lg:w-0 lg:flex-1">
         {/* Application Logo */}
         <Link to="/">
-          <img className="h-8 w-auto sm:h-10" src={logo} alt="Logo" />
+          <img
+            className="h-28 md:scale-150  w-auto sm:h-10"
+            src={logo}
+            alt="Logo"
+          />
         </Link>
       </div>
 
@@ -21,7 +25,7 @@ const Navbar = () => {
         {/* Sign Up Button */}
         <Link to="/signIn">
           <Button variant="solid" color="slate">
-            Open Discord
+            Login
           </Button>
         </Link>
       </div>
