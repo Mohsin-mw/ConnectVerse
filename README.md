@@ -35,23 +35,23 @@ Unveil ConnectVerse – an exquisite chat application meticulously crafted using
 
 Embark upon your odyssey with ConnectVerse through the following uncomplicated steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/ConnectVerse.git`
+1. Clone the repository: `git clone https://github.com/Mohsin-mw/ConnectVerse`
 2. Install dependencies: `npm install`
 3. Configure Supabase: Delve into the exhaustive documentation to seamlessly configure your Supabase project and requisite environment variables.
-4. Initiate the Development Server: Set the stage for your journey with the command `npm start`.
+4. Initiate the Development Server: Set the stage for your journey with the command `npm run dev`.
 
 Immerse yourself in the tapestry of the codebase, tailor the application to align with your unique vision, and contribute dynamically to this evolving narrative by submitting discerning pull requests. Together, we are poised to establish an unparalleled communication haven that magnificently showcases the boundless potential of contemporary web technologies.
 
 ## 🤝 Contributing
 
-We extend a gracious invitation to contributors across all echelons. Whether rectifying issues, introducing avant-garde features, refining documentation, or fostering collaboration through diverse channels, peruse our [Comprehensive Contribution Guidelines](CONTRIBUTING.md) to embark upon a purposeful journey.
+We extend a gracious invitation to contributors across all echelons. Whether rectifying issues, introducing avant-garde features, refining documentation, or fostering collaboration through diverse channels, peruse our [Comprehensive Contribution Guidelines](https://github.com/Mohsin-mw/ConnectVerse/blob/main/CONTRIBUTING.md) to embark upon a purposeful journey.
 
 ## 📄 License
 
-ConnectVerse operates under the wings of the [MIT License](LICENSE), thereby endowing you with the autonomy to navigate, customize, and distribute the codebase.
+ConnectVerse operates under the wings of the [MIT License](https://github.com/Mohsin-mw/ConnectVerse/blob/main/LICENSE.txt), thereby endowing you with the autonomy to navigate, customize, and distribute the codebase.
 
 ## 📧 Contact
 
-For inquiries or reflections, please feel unreservedly welcomed to connect with us at [email@example.com](mailto:email@example.com), or converge within the hallowed halls of our Discord server at [discord.gg/your-server](https://discord.gg/your-server).
+For inquiries or reflections, please feel unreservedly welcomed to connect with us at [null.mmw@gmail.com](mailto:null.mmw@gmail.com), or converge within the hallowed halls of our Discord server at [https://discord.gg/FyHzNGM9](https://discord.gg/FyHzNGM9).
 
 Embark upon an expedition of eloquent communication with ConnectVerse – traverse a realm where real-time interaction ascends to new summits. May your coding endeavors be resplendent with fulfillment!
