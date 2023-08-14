@@ -7,6 +7,7 @@ export default {
         primary: "#5865F2",
         "raisin-black": "#202225",
         "dark-charcoal": "#2F3136",
+        "sonic-silver": "#72767D",
         green: "#3BA55D",
       },
       fontFamily: {

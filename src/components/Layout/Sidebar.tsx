@@ -20,8 +20,8 @@ const Sidebar = () => {
               <img className="h-8 scale-150 w-auto" src={logo} />
             </div>
 
-            {/* Navigation Links */}
-            <nav
+            {/* Server Links */}
+            <div
               aria-label="Sidebar"
               className="flex flex-col items-center space-y-3 py-6"
             >
@@ -36,7 +36,7 @@ const Sidebar = () => {
                     <span className="sr-only">{server.name}</span>
                   </Link>
                 ))}
-            </nav>
+            </div>
 
             {/* Add Server Button */}
             <img

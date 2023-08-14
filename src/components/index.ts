@@ -13,3 +13,4 @@ export { default as SocialSignInButton } from "./Authentication/SignIn/SocialSig
 export { default as Sidebar } from "./Layout/Sidebar";
 export { default as PrimaryColumn } from "./Dashboard/PrimaryColumn";
 export { default as SecondaryColumn } from "./Dashboard/SecondaryColumn";
+export { default as Searchbar } from "./Dashboard/Searchbar";
