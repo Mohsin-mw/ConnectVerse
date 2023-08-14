@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Servers } from "../common";
+import { DirectMessages } from "../common";
 import { useLoading } from "./useLoader";
 
 /**
- * Custom hook for fetching server data.
+ * Custom hook for fetching direct messages.
  *
  * @returns {{
- *   servers: Servers[] ;
+ *   dm: DirectMessages[] ;
  * }}
  */
-const useServers = (): { servers: Servers[] } => {
-  // State to store server data
-  const [servers, setServers] = useState<Servers[]>([]);
+const useDirectMessages = (): { dm: DirectMessages[] } => {
+  // State to store direct messages data
+  const [dm, setDm] = useState<DirectMessages[]>([]);
 
   // Loading state management using the useLoading hook
   const { setLoading } = useLoading();
@@ -22,12 +22,12 @@ const useServers = (): { servers: Servers[] } => {
    *
    * @async
    */
-  const fetchServers = async () => {
+  const fetchDms = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("/api/movies");
+      const response = await axios.get("/api/dms");
       if (response.data) {
-        setServers(response.data.navigation);
+        setDm(response.data.directMessages);
       }
     } catch (error) {
       console.error("Error fetching server data:", error);
@@ -38,10 +38,10 @@ const useServers = (): { servers: Servers[] } => {
 
   // Fetch server data on component mount
   useEffect(() => {
-    fetchServers();
+    fetchDms();
   }, []);
 
-  return { servers };
+  return { dm };
 };
 
-export default useServers;
+export default useDirectMessages;

@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Servers } from "../common";
+import { User } from "../common";
 import { useLoading } from "./useLoader";
 
 /**
  * Custom hook for fetching server data.
  *
  * @returns {{
- *   servers: Servers[] ;
+ *   user: User | undefined ;
  * }}
  */
-const useServers = (): { servers: Servers[] } => {
-  // State to store server data
-  const [servers, setServers] = useState<Servers[]>([]);
-
+const useUser = (): { user: User | undefined } => {
+  // State to store user data
+  const [user, setUser] = useState<User | undefined>();
   // Loading state management using the useLoading hook
   const { setLoading } = useLoading();
 
@@ -22,12 +21,12 @@ const useServers = (): { servers: Servers[] } => {
    *
    * @async
    */
-  const fetchServers = async () => {
+  const fetchUser = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("/api/movies");
-      if (response.data) {
-        setServers(response.data.navigation);
+      const response = await axios.get("/api/user");
+      if (response.data && response.data.user) {
+        setUser(response.data.user);
       }
     } catch (error) {
       console.error("Error fetching server data:", error);
@@ -38,10 +37,10 @@ const useServers = (): { servers: Servers[] } => {
 
   // Fetch server data on component mount
   useEffect(() => {
-    fetchServers();
+    fetchUser();
   }, []);
 
-  return { servers };
+  return { user };
 };
 
-export default useServers;
+export default useUser;

@@ -14,3 +14,7 @@ export { default as Sidebar } from "./Layout/Sidebar";
 export { default as PrimaryColumn } from "./Dashboard/PrimaryColumn";
 export { default as SecondaryColumn } from "./Dashboard/SecondaryColumn";
 export { default as Searchbar } from "./Dashboard/Searchbar";
+export { default as DirectMessages } from "./Dashboard/DirectMessages.tsx";
+export { default as UserCard } from "./Dashboard/UserCard.tsx";
+export { default as SearchSection } from "./Dashboard/SearchSection.tsx";
+export { default as FriendsSection } from "./Dashboard/FriendsSection.tsx";
