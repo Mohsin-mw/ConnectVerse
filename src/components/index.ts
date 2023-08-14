@@ -11,3 +11,5 @@ export { default as Button } from "./shared/Button";
 export { default as Logo } from "./shared/Logo";
 export { default as SocialSignInButton } from "./Authentication/SignIn/SocialSignInButton";
 export { default as Sidebar } from "./Layout/Sidebar";
+export { default as PrimaryColumn } from "./Dashboard/PrimaryColumn";
+export { default as SecondaryColumn } from "./Dashboard/SecondaryColumn";
