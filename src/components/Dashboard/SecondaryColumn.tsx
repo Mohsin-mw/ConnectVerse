@@ -7,7 +7,7 @@ import { DirectMessages, FriendsSection, SearchSection, UserCard } from "..";
 const SecondaryColumn = () => (
   <aside className="hidden lg:order-first lg:block lg:flex-shrink-0">
     {/* Outer container for the secondary column */}
-    <div className="relative flex h-full w-96 flex-col overflow-y-auto bg-dark-charcoal">
+    <div className="relative flex h-full w-96 flex-col overflow-y-auto bg-charleston-Green">
       <div className="flex flex-col items-start justify-start h-full">
         {/* Search Bar Section */}
         <SearchSection />

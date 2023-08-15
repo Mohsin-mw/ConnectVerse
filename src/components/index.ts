@@ -18,3 +18,5 @@ export { default as DirectMessages } from "./Dashboard/DirectMessages.tsx";
 export { default as UserCard } from "./Dashboard/UserCard.tsx";
 export { default as SearchSection } from "./Dashboard/SearchSection.tsx";
 export { default as FriendsSection } from "./Dashboard/FriendsSection.tsx";
+export { default as MainHeader } from "./Dashboard/MainHeader.tsx";
+export { default as MessageBox } from "./Dashboard/MessageBox.tsx";
