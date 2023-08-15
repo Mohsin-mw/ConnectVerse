@@ -1,5 +1,6 @@
 import useUser from "../../hooks/useUser"; // Import the custom hook for fetching user data
 import Settings from "../../assets/icons/Settings.svg"; // Import the Settings icon
+import { Link } from "react-router-dom";
 
 /**
  * UserCard component displays user information and settings icon.
@@ -24,8 +25,10 @@ const UserCard = () => {
           </div>
         </div>
 
-        {/* Display the Settings icon */}
-        <img className="cursor-pointer" src={Settings} alt="Settings" />
+        {/* Settings Button */}
+        <Link to="/dashboard/settings/account">
+          <img className="cursor-pointer" src={Settings} alt="Settings" />
+        </Link>
       </div>
     )
   );

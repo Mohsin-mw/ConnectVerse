@@ -26,3 +26,16 @@ export const footerLinks = {
     },
   ],
 };
+
+// Setting Buttons
+
+export const SettingButtons = [
+  {
+    title: "My Account",
+    href: "/dashboard/settings/account",
+  },
+  {
+    title: "Logout",
+    href: "/dashboard/settings/logout",
+  },
+];

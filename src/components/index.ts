@@ -20,3 +20,4 @@ export { default as SearchSection } from "./Dashboard/SearchSection.tsx";
 export { default as FriendsSection } from "./Dashboard/FriendsSection.tsx";
 export { default as MainHeader } from "./Dashboard/MainHeader.tsx";
 export { default as MessageBox } from "./Dashboard/MessageBox.tsx";
+export { default as ProfileInput } from "./Profile/ProfileInput.tsx";

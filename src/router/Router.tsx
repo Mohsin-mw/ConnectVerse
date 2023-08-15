@@ -5,6 +5,9 @@ import SignIn from "../pages/Public/SignIn";
 import Dashboard from "../pages/Private/Dashboard";
 import Error from "../pages/Misc/Error";
 import Layout from "./Layout";
+import Settings from "../pages/Private/Settings";
+import Profile from "../pages/Private/Profile";
+import Logout from "../pages/Private/Logout";
 
 const Router = createBrowserRouter([
   {
@@ -28,6 +31,20 @@ const Router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard/settings/",
+    element: <Settings />,
+    children: [
+      {
+        path: "/dashboard/settings/account",
+        element: <Profile />,
+      },
+      {
+        path: "/dashboard/settings/logout",
+        element: <Logout />,
       },
     ],
   },
