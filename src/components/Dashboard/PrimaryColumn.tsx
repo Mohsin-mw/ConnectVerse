@@ -5,7 +5,7 @@ const PrimaryColumn = () => {
   return (
     <section
       aria-labelledby="primary-heading"
-      className="flex relative h-full min-w-0 flex-1 flex-col overflow-y-auto lg:order-last bg-dark-charcoal"
+      className="flex relative h-full min-w-0 flex-1 flex-col overflow-y-auto lg:order-last bg-onyx"
     >
       {/* A static header that will update on route changes */}
       <MainHeader />

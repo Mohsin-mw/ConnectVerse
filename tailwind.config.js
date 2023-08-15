@@ -10,6 +10,7 @@ export default {
         "charleston-Green": "#292B2F",
         "sonic-silver": "#72767D",
         arsenic: "#393C43",
+        onyx: "#36393F",
         green: "#3BA55D",
       },
       fontFamily: {

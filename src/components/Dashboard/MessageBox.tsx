@@ -7,7 +7,7 @@ const MessageBox = () => {
   // State to store the message
   const [message, setMessage] = useState("");
   return (
-    <div className="bg-dark-charcoal p-4 flex">
+    <div className="bg-onyx p-4 flex">
       <form className="flex-1 bg-charleston-Green shadow-lg rounded-md">
         <input
           type="text"
