@@ -16,6 +16,10 @@ import { LoadingProvider } from "./context/LoaderProvider.tsx";
  * @returns {void}
  */
 
+import { Server } from "./Server";
+
+Server();
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     {/* Wrap the App component with LoadingProvider for loading state management */}
