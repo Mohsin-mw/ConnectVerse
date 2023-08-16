@@ -45,10 +45,12 @@ const Sidebar = () => {
             />
 
             {/* Discovery Button */}
-            <img
-              className="my-4 cursor-pointer"
-              src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
-            />
+            <Link to="/dashboard/explore">
+              <img
+                className="my-4 cursor-pointer"
+                src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
+              />
+            </Link>
           </div>
         </div>
       </div>

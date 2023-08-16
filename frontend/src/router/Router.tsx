@@ -8,6 +8,7 @@ import Layout from "./Layout";
 import Settings from "../pages/Private/Settings";
 import Profile from "../pages/Private/Profile";
 import Logout from "../pages/Private/Logout";
+import Explore from "../pages/Private/Explore";
 import Appearence from "../pages/Private/Appearence";
 
 const Router = createBrowserRouter([
@@ -32,6 +33,10 @@ const Router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/dashboard/explore",
+        element: <Explore />,
       },
     ],
   },
