@@ -12,6 +12,7 @@ export default {
         arsenic: "#393C43",
         onyx: "#36393F",
         green: "#3BA55D",
+        grey: "#C4C4C4",
       },
       fontFamily: {
         "passion-one": ['"Passion One"', "cursive"],

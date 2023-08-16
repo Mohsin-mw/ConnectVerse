@@ -1,5 +1,11 @@
+import ServerCard from "../../components/Explore/ServerCard";
+
 const Explore = () => {
-  return <div>Explore</div>;
+  return (
+          <>
+          <ServerCard/>
+          </>
+  );
 };
 
 export default Explore;
