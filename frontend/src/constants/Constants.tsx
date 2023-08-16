@@ -38,4 +38,8 @@ export const SettingButtons = [
     title: "Logout",
     href: "/dashboard/settings/logout",
   },
+  {
+    title: "Appearance",
+    href: "/dashboard/settings/appearance",
+  },
 ];

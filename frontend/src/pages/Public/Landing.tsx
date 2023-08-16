@@ -18,7 +18,7 @@ const Landing = () => {
   return (
     <div>
       {/* Header Section */}
-      <div className={`bg-primary bg-cover bg-top `}>
+      <div className={`bg-illustration bg-cover bg-top `}>
         {/* Navigation Bar */}
         <Navbar />
 
