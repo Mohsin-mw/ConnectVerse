@@ -81,6 +81,50 @@ export const Server = () => {
         },
         { timing: 1000 }
       );
+      this.get(
+        "/explore",
+        () => {
+          return [
+            {
+              Image: "https://i.ibb.co/GfSzMqJ/Subtract.png",
+              Icon: "https://i.ibb.co/s9X1KPX/Image.png",
+              Name: "Apple",
+              Description:
+                "The official Apple server. Your place to talk about latest tech!",
+              membersOnline: "323,450",
+              membersTotal: "800,000",
+            },
+            {
+              Image: "https://i.ibb.co/vw6gYpw/Subtract-1.png",
+              Icon: "https://i.ibb.co/vYZz4jS/Image-1.png",
+              Name: "Pokémon",
+              Description:
+                "The largest Pokémon community on Discord! Keep up with game/anime news and chat with fellow Pokémon fans!",
+              membersOnline: "236,308",
+              membersTotal: "735,513",
+            },
+            {
+              Image: "https://i.ibb.co/NCN7n7d/Subtract-2.png",
+              Icon: "https://i.ibb.co/mb6QdjX/Image-2.png",
+              Name: "Community Architects",
+              Description:
+                "We are committed to bringing together community mods, admins, etc. to share our biggest passion: Building Communities.",
+              membersOnline: "1,606",
+              membersTotal: "3,000",
+            },
+            {
+              Image: "https://i.ibb.co/1Ty4Xyj/Subtract-3.png",
+              Icon: "https://i.ibb.co/840zdfM/Image-3.png",
+              Name: "Animal Lovers",
+              Description:
+                "A community for animal lovers run by animal enthusiasts!",
+              membersOnline: "24,675",
+              membersTotal: "77,575",
+            },
+          ];
+        },
+        { timing: 1000 }
+      );
     },
   });
 };

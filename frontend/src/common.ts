@@ -18,3 +18,12 @@ export interface User {
   userName: string;
   avatar: string;
 }
+
+export interface ExploreServer {
+  Image: string;
+  Icon: string;
+  Name: string;
+  Description: string;
+  membersOnline: string;
+  membersTotal: string;
+}
