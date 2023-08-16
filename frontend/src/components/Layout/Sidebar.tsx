@@ -12,8 +12,8 @@ const Sidebar = () => {
 
   return (
     <div className="hidden lg:flex lg:flex-shrink-0">
-      <div className="flex w-20 flex-col">
-        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-raisin-black px-4">
+      <div className="flex w-[4.5rem] flex-col">
+        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-raisin-black px-2">
           <div className="flex-1">
             {/* Discord Logo */}
             <div className="flex items-center justify-center py-4 border-b-dark-charcoal border-b-2">
@@ -36,21 +36,21 @@ const Sidebar = () => {
                     <span className="sr-only">{server.name}</span>
                   </Link>
                 ))}
-            </div>
 
-            {/* Add Server Button */}
-            <img
-              className="cursor-pointer"
-              src="https://i.ibb.co/12qq3Ly/Add-Server.png"
-            />
-
-            {/* Discovery Button */}
-            <Link to="/dashboard/explore">
+              {/* Add Server Button */}
               <img
-                className="my-4 cursor-pointer"
-                src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
+                className="cursor-pointer"
+                src="https://i.ibb.co/12qq3Ly/Add-Server.png"
               />
-            </Link>
+
+              {/* Discovery Button */}
+              <Link to="/dashboard/explore">
+                <img
+                  className="cursor-pointer"
+                  src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
+                />
+              </Link>
+            </div>
           </div>
         </div>
       </div>

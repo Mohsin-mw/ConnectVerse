@@ -5,7 +5,9 @@ import friendIcon from "../../assets/icons/friends.svg";
  * It includes an icon and label for the friends section.
  */
 const FriendsSection = () => (
-  <div className="text-sonic-silver flex flex-row items-center justify-start px-4 py-4 gap-4 rounded-md my-4 cursor-pointer hover:bg-arsenic  duration-100">
+  
+  // Replace div with link or button later
+  <div className="text-french-gray font-medium flex gap-4 my-4 items-center hover:bg-onyx p-3 rounded text-sm hover:text-white  duration-100">
     {/* Display the friends icon */}
     <img src={friendIcon} alt="Friends Icon" />
 
