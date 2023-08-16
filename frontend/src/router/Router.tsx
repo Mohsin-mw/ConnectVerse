@@ -9,7 +9,7 @@ import Settings from "../pages/Private/Settings";
 import Profile from "../pages/Private/Profile";
 import Logout from "../pages/Private/Logout";
 import Explore from "../pages/Private/Explore";
-import Appearence from "../pages/Private/Appearence";
+import Appearance from "../pages/Private/Appearance";
 
 const Router = createBrowserRouter([
   {
@@ -53,8 +53,8 @@ const Router = createBrowserRouter([
         element: <Logout />,
       },
       {
-        path: "/dashboard/settings/appearence",
-        element: <Appearence />,
+        path: "/dashboard/settings/appearance",
+        element: <Appearance />,
       },
     ],
   },

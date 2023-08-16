@@ -18,8 +18,8 @@ export default {
         poppins: ['"poppins"', "cursive"],
       },
       backgroundImage: {
-        primary: "url(src/assets/PrimaryBackground.png)",
-        auth: "url(src/assets/authBackground.png)",
+        illustration: "url(/src/assets/PrimaryBackground.png)",
+        auth: "url(/src/assets/authBackground.png)",
       },
     },
   },
