@@ -13,7 +13,7 @@
   display: inline-block;
   aspect-ratio: 1 / 1;
   width: 1.5rem /* 24px */;
-  background-color: currentColor;
+  background-color:white;
   mask-size: 100%;
   mask-repeat: no-repeat;
   mask-position: center;
