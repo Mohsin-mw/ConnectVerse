@@ -5,6 +5,8 @@ import pinIcon from "../../assets/icons/pin.svg";
 import addFriendIcon from "../../assets/icons/add-friend.svg";
 import inboxIcon from "../../assets/icons/inbox.svg";
 import helpIcon from "../../assets/icons/help.svg";
+import msgIcon from "../../assets/icons/messageIcon.svg";
+import friendIcon from "../../assets/icons/friends.svg"
 import { Searchbar } from "..";
 
 /**
@@ -16,7 +18,7 @@ const TopBar = () => (
     {/* User Profile Button : Will be used later to open profile modal */}
     <div className="flex">
       <button className="flex font-semibold gap-2 text-sm items-center pr-5 border-r border-arsenic">
-        <img src={atIcon} /> Friends
+        <img className="mr-1" src={friendIcon} /> Friends
       </button>
       {/*  Buttons for online all pending blocked add friend */}
       <div className="flex gap-6 [&>button]:shrink-0 [&>button]:p-[5px] [&>button]:rounded-md [&>button]:text-base">
@@ -29,13 +31,13 @@ const TopBar = () => (
     </div>
     <div className="flex gap-6">
       <button>
-        <img src={callIcon} />
+        <img src={msgIcon} />
       </button>
       <button>
-        <img src={videoIcon} />
+        <img src={inboxIcon} />
       </button>
       <button>
-        <img src={pinIcon} />
+        <img src={helpIcon} />
       </button>
     </div>
   </div>
