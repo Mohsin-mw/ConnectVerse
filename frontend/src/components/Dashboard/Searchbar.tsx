@@ -15,7 +15,7 @@ const Searchbar = () => {
       value={value}
       onChange={(e) => setValue(e.target.value)} // Update the value based on user input
       placeholder="Start a conversation"
-      className="bg-raisin-black w-full text-sonic-silver placeholder-sonic-silver focus:outline-none font-medium px-4 py-2 rounded-md"
+      className="bg-raisin-black w-full text-sm text-sonic-silver placeholder-sonic-silver focus:outline-none font-medium px-4 py-2 rounded-md"
     />
   );
 };

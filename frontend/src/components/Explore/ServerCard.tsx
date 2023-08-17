@@ -12,50 +12,43 @@ type ServerCardProps = {
 };
 
 const ServerCard = ({ server }: ServerCardProps) => (
-  <div className="w-80 h-96 bg-dark-charcoal rounded-md overflow-hidden  cursor-pointer">
-    {/* banner */}
-    <img className="w-full object-cover" src={server.Image} />
+  <div className="group bg-dark-charcoal relative hover:bg-raisin-black transition-colors duration-150 rounded-md overflow-hidden cursor-pointer">
+    {/* banner and server icon container */}
+    <div className="group-hover:scale-[1.02] transition ease-out duration-300">
+      {/* banner */}
+      <img className="w-full object-cover" src={server.Image} />
 
-    {/* server icon */}
-    <img
-      className="w-10 relative bottom-7"
-      style={{ left: "19px" }}
-      src={server.Icon}
-      alt=""
-    />
+      {/* server icon */}
+      <img
+        className="w-10 relative bottom-7 left-[15px]"
+        src={server.Icon}
+        alt=""
+      />
+    </div>
 
     {/* card item text */}
     <div className="flex h-48 flex-col justify-between relative bottom-3">
       <div className="px-4">
         {/* title */}
-        <h4 className="flex gap-2 text-xl text-white">
+        <h4 className="flex gap-2 text-lg text-white">
           {/* verified badge */}
           <img className="h-5 w-5 relative top-1" src={verified} alt="" />
           {server.Name}
         </h4>
-        <p
-          className="text-sm my-4 leading-relaxed"
-          style={{ color: "#B9BBBE" }}
-        >
+        <p className="text-sm my-4 leading-relaxed text-french-gray">
           {server.Description}
         </p>
       </div>
 
       {/* online and members container */}
-      <div className="flex justify-around px-4 mb-2">
-        <p
-          className="flex items-center gap-1 text-sm"
-          style={{ color: "#B9BBBE" }}
-        >
+      <div className="flex gap-4 px-4 mb-2 text-xs text-french-gray">
+        <p className="flex items-center gap-1">
           {/* server status symbol */}
           <span className="w-2 h-2 rounded-full inline-block bg-green"></span>
           {server.membersOnline} Online
         </p>
 
-        <p
-          className="flex items-center gap-1 text-sm"
-          style={{ color: "#B9BBBE" }}
-        >
+        <p className="flex items-center gap-1">
           {/* server status symbol */}
           <span className="w-2 h-2 rounded-full inline-block bg-grey"></span>
           {server.membersTotal} Members

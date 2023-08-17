@@ -1,32 +1,23 @@
-import { DirectMessages, FriendsSection, SearchSection, UserCard } from "..";
+import { UserCard } from "..";
+
+// Typeof props secondary column accepts;
+interface SecondaryColumnProps {
+  children: React.ReactNode;
+}
 
 /**
  * SecondaryColumn component represents the secondary column in the UI layout.
  * It contains various sections such as search bar, friends, direct messages, and user card.
  */
-const SecondaryColumn = () => (
+const SecondaryColumn = ({ children }: SecondaryColumnProps) => (
   <aside className="hidden lg:order-first lg:block lg:flex-shrink-0">
     {/* Outer container for the secondary column */}
-    <div className="relative flex h-full w-96 flex-col overflow-y-auto bg-dark-charcoal">
-      <div className="flex flex-col items-start justify-start h-full">
-        {/* Search Bar Section */}
-        <SearchSection />
+    <div className="relative flex h-full w-64 flex-col bg-dark-charcoal">
+      {/* Sidebar Content */}
+      <div className="flex-1 overflow-y-auto mb-14">{children}</div>
 
-        {/* Main Content Section */}
-        <div className="px-4 w-full flex-grow">
-          {/* Friends Section */}
-          <FriendsSection />
-
-          {/* Direct Messages Section */}
-          <div className="text-sonic-silver font-bold px-4">
-            DIRECT MESSAGES
-          </div>
-          <DirectMessages />
-        </div>
-
-        {/* User Card Section */}
-        <UserCard />
-      </div>
+      {/* Static User Card Section */}
+      <UserCard />
     </div>
   </aside>
 );
