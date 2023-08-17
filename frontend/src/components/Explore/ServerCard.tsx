@@ -20,7 +20,7 @@ const ServerCard = ({ server }: ServerCardProps) => (
 
       {/* server icon */}
       <img
-        className="w-10 relative bottom-7 left-[15px]"
+        className="w-16 relative bottom-11 left-[30px]"
         src={server.Icon}
         alt=""
       />
