@@ -125,6 +125,52 @@ export const Server = () => {
         },
         { timing: 1000 }
       );
+      this.get("/friends", () => {
+        return [
+          {
+            userName: "Alan",
+            avatar: "https://i.ibb.co/27jBR0k/Group-582.png",
+            activity: "Playing GTA5",
+            status: "online",
+          },
+          {
+            userName: "John",
+            avatar: "https://i.ibb.co/2tPQWMG/Group-583.png",
+            activity: "Playing amoong us",
+            status: "offline",
+          },
+          {
+            userName: "Jane",
+            avatar: "https://i.ibb.co/LZxnJhS/Group-584.png",
+            activity: "Listening Spotify",
+            status: "busy",
+          },
+          {
+            userName: "Emily",
+            avatar: "https://i.ibb.co/kQdqcSs/Group-585.png",
+            activity: "Playing Google chrome",
+            status: "online",
+          },
+          {
+            userName: "Michael",
+            avatar: "https://i.ibb.co/CbmxRHf/Group-587.png",
+            activity: "Playing VS Code",
+            status: "online",
+          },
+          {
+            userName: "David",
+            avatar: "https://i.ibb.co/zxHZrzh/Profile-Picture.png",
+            activity: "Playing NFS",
+            status: "offline",
+          },
+          {
+            userName: "Sarah",
+            avatar: "https://i.ibb.co/4sFXx1G/Status.png",
+            activity: "Sleeping",
+            status: "online",
+          },
+        ];
+      });
     },
   });
 };
