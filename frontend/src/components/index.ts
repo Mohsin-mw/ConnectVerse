@@ -26,3 +26,4 @@ export { default as ServerSearch } from "./Explore/ServerSearch.tsx";
 export { default as ToggleButton } from "./Appearance/ToggleButton.tsx";
 export { default as FriendsPrimaryColumn } from "./Friends/FriendsPrimaryColumn.tsx";
 export { default as FriendSearch } from "./Friends/FriendSearch.tsx";
+export { default as ServerConfirmation } from "./Explore/ServerConfirmation.tsx";

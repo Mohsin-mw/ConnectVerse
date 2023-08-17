@@ -1,6 +1,6 @@
 import ServerCard from "../../components/Explore/ServerCard";
 import { Banner, SecondaryColumn } from "../../components";
-import useExploreServes from "../../hooks/useExploreServers";
+import useExploreServers from "../../hooks/useExploreServers";
 import { Link } from "react-router-dom";
 import compassIcon from "../../assets/icons/compass.svg";
 import atomIcon from "../../assets/icons/atom.svg";
@@ -9,9 +9,19 @@ import hatIcon from "../../assets/icons/hat.svg";
 import musicIcon from "../../assets/icons/music.svg";
 import nodeTreeIcon from "../../assets/icons/node-tree.svg";
 import tvIcon from "../../assets/icons/tv.svg";
+import { useState } from "react";
+import { ServerConfirmation } from "../../components";
+import { ExploreServer } from "../../common";
 
 const Explore = () => {
-  const { servers } = useExploreServes();
+  const [modal, setModal] = useState<boolean>(false);
+  const [modalServer, setModalServer] = useState<ExploreServer>();
+  const { servers } = useExploreServers();
+
+  const handleClick = (server: ExploreServer) => {
+    setModal(true);
+    setModalServer(server);
+  };
   return (
     <main className="flex flex-1 overflow-hidden ">
       {/* Secondary Column */}
@@ -81,11 +91,19 @@ const Explore = () => {
           </h3>
           <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
             {servers.map((server) => (
-              <ServerCard server={server} />
+              <button onClick={() => handleClick(server)}>
+                <ServerCard server={server} />
+              </button>
             ))}
           </div>
         </div>
       </div>
+      {modal && (
+        <ServerConfirmation
+          server={modalServer as ExploreServer}
+          setModal={setModal}
+        />
+      )}
     </main>
   );
 };

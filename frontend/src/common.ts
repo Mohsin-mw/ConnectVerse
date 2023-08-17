@@ -32,6 +32,7 @@ export interface ExploreServer {
   Image: string;
   Icon: string;
   Name: string;
+  Url: string;
   Description: string;
   membersOnline: string;
   membersTotal: string;
