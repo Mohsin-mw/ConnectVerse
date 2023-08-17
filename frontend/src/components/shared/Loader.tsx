@@ -40,7 +40,7 @@ const Loader = () => {
    * @returns {JSX.Element} JSX representation of the Loader.
    */
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-white">
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-[#2f3136] ">
       <span className="loading loading-infinity loading-lg text-purple-800"></span>
     </div>
   );
