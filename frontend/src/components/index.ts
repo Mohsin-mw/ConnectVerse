@@ -24,3 +24,5 @@ export { default as ProfileInput } from "./Profile/ProfileInput.tsx";
 export { default as Banner } from "./Explore/Banner.tsx";
 export { default as ServerSearch } from "./Explore/ServerSearch.tsx";
 export { default as ToggleButton } from "./Appearance/ToggleButton.tsx";
+export { default as FriendsPrimaryColumn } from "./Friends/FriendsPrimaryColumn.tsx";
+export { default as FriendSearch } from "./Friends/FriendSearch.tsx";

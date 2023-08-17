@@ -10,6 +10,7 @@ import Profile from "../pages/Private/Profile";
 import Logout from "../pages/Private/Logout";
 import Explore from "../pages/Private/Explore";
 import Appearance from "../pages/Private/Appearance";
+import Friends from "../pages/Private/Friends";
 
 const Router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const Router = createBrowserRouter([
       {
         path: "/dashboard/explore",
         element: <Explore />,
+      },
+      {
+        path: "/dashboard/friends",
+        element: <Friends />,
       },
     ],
   },
