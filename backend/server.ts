@@ -9,12 +9,14 @@ import authRouter from "./Router/auth";
 import friendRouter from "./Router/friends";
 
 // MIDDELWARE
-app.use(cors());
+app.use(cors({ credentials: true, origin: "http://localhost:3000/" }));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // ROUTES
 app.use("/auth", authRouter);
 app.use("/friends", friendRouter);
 
 app.listen(port, () => {
-  console.log("server has started on port", port);
+	console.log("server has started on port", port);
 });
