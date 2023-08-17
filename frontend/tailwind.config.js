@@ -14,6 +14,7 @@ export default {
         onyx: "#36393F",
         green: "#3BA55D",
         grey: "#C4C4C4",
+        "grey-border": "#38393f"
       },
       fontFamily: {
         "passion-one": ['"Passion One"', "cursive"],

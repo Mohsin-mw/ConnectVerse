@@ -1,6 +1,7 @@
 import { FriendSearch } from "..";
 import useFriends from "../../hooks/useFriends";
 import FriendCard from "./FriendCard";
+import ActiveNow from "./ActiveNow";
 
 const FriendsPrimaryColumn = () => {
   const { friends } = useFriends();
@@ -18,7 +19,7 @@ const FriendsPrimaryColumn = () => {
             <FriendCard friend={friend} />
           ))}
         </div>
-        <div className="w-1/3 bg-green ">Hello</div>
+            <ActiveNow/> 
       </div>
     </section>
   );
