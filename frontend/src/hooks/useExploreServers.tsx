@@ -10,7 +10,7 @@ import { useLoading } from "./useLoader";
  *   servers: ExploreServer[] ;
  * }}
  */
-const useExploreServes = (): { servers: ExploreServer[] } => {
+const useExploreServers = (): { servers: ExploreServer[] } => {
   // State to store servers data
   const [servers, setServers] = useState<ExploreServer[]>([]);
 
@@ -44,4 +44,4 @@ const useExploreServes = (): { servers: ExploreServer[] } => {
   return { servers };
 };
 
-export default useExploreServes;
+export default useExploreServers;
