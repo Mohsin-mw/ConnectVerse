@@ -11,6 +11,15 @@ export interface DirectMessages {
   avatar: string;
 }
 
+// Status
+type Status = "online" | "offline" | "busy";
+
+// Friend Type
+export interface Friend extends DirectMessages {
+  activity: string;
+  status: Status;
+}
+
 // User Type
 
 export interface User {

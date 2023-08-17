@@ -1,4 +1,5 @@
-import useDirectMessages from "../../hooks/useDirectMessages";
+import { Link } from "react-router-dom";
+import useFriends from "../../hooks/useFriends";
 
 /**
  * DirectMessages component displays a list of direct messages.
@@ -6,23 +7,37 @@ import useDirectMessages from "../../hooks/useDirectMessages";
  * @component
  */
 const DirectMessages = () => {
-  // Fetch direct messages using the custom hook
-  const { dm } = useDirectMessages();
-
+  // Fetch friends using the custom hook
+  const { friends } = useFriends();
+  console.log(friends);
   return (
     <>
-      {dm &&
-        dm.map((message) => (
-          <div
-            key={message.avatar}
-            className="text-french-gray font-medium p-2 hover:text-white text-sm rounded-md cursor-pointer my-2 flex flex-row  items-center justify-start gap-4 hover:bg-arsenic  duration-100 "
+      {friends &&
+        friends.map((friend) => (
+          <Link
+            // Href to dm to start chatting.
+            to={""}
+            key={friend.userName}
+            className="text-french-gray p-2 hover:text-white text-sm rounded-md cursor-pointer my-2 flex flex-row  items-center justify-start gap-4 hover:bg-arsenic  duration-100 "
           >
             {/* Display the user's avatar */}
-            <img src={message.avatar} alt={message.userName} />
+            <div>
+              <img src={friend.avatar} alt={friend.userName} />
+              {/* Status : online, offline, busy yet to add */}
+              <div></div>
+            </div>
 
-            {/* Display the user's username */}
-            <span>{message.userName}</span>
-          </div>
+            {/* Display the user's username and activity */}
+            <div className="truncate flex-1">
+              {/* Truncate class added ellipsis(...) on overflow  */}
+              <p className="font-medium" title={friend.userName}>
+                {friend.userName}
+              </p>
+              <p className="text-xs" title={friend.activity}>
+                {friend.activity}
+              </p>
+            </div>
+          </Link>
         ))}
     </>
   );
