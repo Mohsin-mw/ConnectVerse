@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, redirect } from "react-router-dom";
 import Landing from "../pages/Public/Landing";
 import SignUp from "../pages/Public/SignUp";
 import SignIn from "../pages/Public/SignIn";
@@ -11,6 +11,7 @@ import Logout from "../pages/Private/Logout";
 import Explore from "../pages/Private/Explore";
 import Appearance from "../pages/Private/Appearance";
 import Friends from "../pages/Private/Friends";
+import Server from "../pages/Private/Server";
 
 const Router = createBrowserRouter([
   {
@@ -42,6 +43,23 @@ const Router = createBrowserRouter([
       {
         path: "/dashboard/friends",
         element: <Friends />,
+      },
+      {
+        path: "/dashboard/servers",
+        loader: () => redirect("/dashboard"),
+      },
+      {
+        path: "/dashboard/servers/:serverId",
+        loader: ({ params }) => {
+          // Get serverid from args and redirect to first channel of server
+          return redirect(
+            `/dashboard/servers/${params.serverId}/[channel_id_here]`
+          );
+        },
+      },
+      {
+        path: "/dashboard/servers/:serverId/:channelId",
+        element: <Server />,
       },
     ],
   },

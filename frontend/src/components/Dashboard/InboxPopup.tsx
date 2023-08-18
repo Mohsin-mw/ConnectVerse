@@ -1,18 +1,21 @@
 import { Popover, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import inboxIcon from "../../assets/icons/inbox.svg";
+import { Tab } from "@headlessui/react";
 
-{/**
-* Inbox Popup component is responsible for opening and closing popup to show unreads, friend
-* requests and mentions
-* @component
-*/}
+{
+  /**
+   * Inbox Popup component is responsible for opening and closing popup to show unreads, friend
+   * requests and mentions
+   * @component
+   */
+}
 function InboxPopup() {
   return (
-    <Popover className="relative">
+    <Popover className="relative shrink-0 h-[18px]">
       <>
         {/* Inbox button to toggle popover */}
-        <Popover.Button className="outline-none">
+        <Popover.Button className="outline-none h-[inherit]">
           <span aria-hidden hidden>
             Inbox
           </span>
@@ -30,29 +33,67 @@ function InboxPopup() {
           leaveTo="opacity-0 translate-y-1"
         >
           {/* Panel To render the inbox content */}
-          <Popover.Panel className="absolute z-10 right-0">
-            <div className="max-h-[80vh] min-w-[480px]  relative bg-[#2a2d31] rounded-[4px] flex flex-col border-box  overflow-hidden ">
-              <div className="bg-raisin-black px-[12px] py-[16px] ">
-                <div className="pb-2 items-center flex gap-3 justify-start">
+          <Popover.Panel className="absolute z-10 right-0 mt-2 rounded">
+            <div className="max-h-[80vh] min-w-[480px]  relative bg-dark-charcoal rounded-[4px] flex flex-col overflow-hidden ">
+              <div className="bg-raisin-black px-3 py-4 ">
+                <div className="items-center flex gap-3 justify-start">
                   <img src={inboxIcon} alt="inbxicon" />
                   <p className="leading-[24px] font-semibold">Inbox</p>
                 </div>
-                <div className="flex items-center mt-3 gap-2 text-sm font-medium text-french-gray">
-                  {/* Acitve state */}
-                  <button className="py-0.5 px-1.5 rounded-sm hover:text-white hover:bg-dark-charcoal">
+              </div>
+
+              {/* Tab group */}
+              <Tab.Group>
+                <Tab.List className="flex items-center py-3 px-4 gap-2 text-sm font-medium text-french-gray bg-raisin-black">
+                  {/* Tab - triggers for you */}
+                  <Tab
+                    className={({ selected }) =>
+                      `py-0.5 px-1.5 rounded hover:bg-dark-charcoal ${
+                        selected
+                          ? "bg-dark-charcoal hover:bg-charleston-Green text-white"
+                          : ""
+                      }`
+                    }
+                  >
                     For You
-                  </button>
-                  <button className="py-0.5 px-1.5 rounded-sm hover:text-white hover:bg-dark-charcoal">
+                  </Tab>
+
+                  {/* Tab - triggers unreads */}
+                  <Tab
+                    className={({ selected }) =>
+                      `py-0.5 px-1.5 rounded hover:bg-dark-charcoal ${
+                        selected
+                          ? "bg-dark-charcoal hover:bg-charleston-Green text-white"
+                          : ""
+                      }`
+                    }
+                  >
                     Unreads
-                  </button>
-                  <button className="py-0.5 px-1.5 rounded-sm hover:text-white hover:bg-dark-charcoal">
+                  </Tab>
+
+                  {/* Tab - Triggers mentions */}
+                  <Tab
+                    className={({ selected }) =>
+                      `py-0.5 px-1.5 rounded hover:bg-dark-charcoal ${
+                        selected
+                          ? "bg-dark-charcoal hover:bg-charleston-Green text-white"
+                          : ""
+                      }`
+                    }
+                  >
                     Mentions
-                  </button>
-                </div>
-              </div>
-              <div className="overflow-x-hidden overflow-y-auto px-[16px] min-h-[100px]">
-                {/* Main content assigned to GraphX */}
-              </div>
+                  </Tab>
+                </Tab.List>
+
+                <Tab.Panels className="overflow-x-hidden overflow-y-auto min-h-[100px]">
+                  {/* Panel 1 - For you */}
+                  <Tab.Panel>panel 1</Tab.Panel>
+                  {/* Panel 2 - Unreads */}
+                  <Tab.Panel className="p-4">panel 2</Tab.Panel>
+                  {/* Panel 3 - Mentions */}
+                  <Tab.Panel className="p-4">panel 3</Tab.Panel>
+                </Tab.Panels>
+              </Tab.Group>
             </div>
           </Popover.Panel>
         </Transition>
