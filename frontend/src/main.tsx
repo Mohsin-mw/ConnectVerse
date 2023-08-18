@@ -17,6 +17,7 @@ import { LoadingProvider } from "./context/LoaderProvider.tsx";
  */
 
 import { Server } from "./Server";
+import { UserProvider } from "./context/UserProvider.tsx";
 
 Server();
 
@@ -24,7 +25,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     {/* Wrap the App component with LoadingProvider for loading state management */}
     <LoadingProvider>
-      <App />
+      <UserProvider>
+        <App />
+      </UserProvider>
     </LoadingProvider>
   </React.StrictMode>
 );

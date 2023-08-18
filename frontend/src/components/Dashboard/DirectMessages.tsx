@@ -9,7 +9,7 @@ import useFriends from "../../hooks/useFriends";
 const DirectMessages = () => {
   // Fetch friends using the custom hook
   const { friends } = useFriends();
-  console.log(friends);
+
   return (
     <>
       {friends &&

@@ -16,9 +16,9 @@ const Sidebar = () => {
         <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-raisin-black px-2">
           <div className="flex-1">
             {/* Discord Logo */}
-            <div className="flex items-center justify-center py-4 border-b-dark-charcoal border-b-2">
+            <Link to="/dashboard" className="flex items-center justify-center py-4 border-b-dark-charcoal border-b-2">
               <img className="h-8 scale-150 w-auto" src={logo} />
-            </div>
+            </Link>
 
             {/* Server Links */}
             <div
