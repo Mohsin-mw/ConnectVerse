@@ -4,8 +4,7 @@ import videoIcon from "../../assets/icons/video.svg";
 import pinIcon from "../../assets/icons/pin.svg";
 import addFriendIcon from "../../assets/icons/add-friend.svg";
 import helpIcon from "../../assets/icons/help.svg";
-import { Searchbar } from "..";
-import InboxPopup from "./InboxPopup";
+import { Searchbar, InboxPopup } from "..";
 
 /**
  * MainHeader component represents the section containing various icons.

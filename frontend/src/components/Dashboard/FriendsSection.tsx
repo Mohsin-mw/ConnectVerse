@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import friendIcon from "../../assets/icons/friends.svg";
+import { Icons } from "..";
 
 /**
  * FriendsSection component represents the section displaying friends.
@@ -12,7 +12,7 @@ const FriendsSection = () => (
     className="text-french-gray font-medium flex gap-4 my-4 items-center hover:bg-onyx p-3 rounded text-sm hover:text-white  duration-100"
   >
     {/* Display the friends icon */}
-    <img src={friendIcon} alt="Friends Icon" />
+    <Icons.Friend />
 
     {/* Display the label for the friends section */}
     <span>Friends</span>
