@@ -44,7 +44,7 @@ const variantStyles: {
   },
   outline: {
     slate:
-      "border border-gray-300 ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300",
+      "border border-sonic-silver ring-sonic-silver text-sonic-silver hover:text-sonic-silver hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300",
     white:
       "ring-slate-700 text-white hover:ring-slate-500 active:ring-slate-700 active:text-slate-400 focus-visible:outline-white",
   },

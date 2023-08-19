@@ -16,10 +16,8 @@ const Dashboard = () => {
     <main className="flex flex-1 overflow-hidden">
       {/* Primary Column */}
       <PrimaryColumn />
-
       {/* Secondary Column : Sidebar */}
       <SecondaryColumn>
-
         {/* Search Bar Section */}
         <SearchSection />
 
@@ -29,7 +27,9 @@ const Dashboard = () => {
           <FriendsSection />
 
           {/* Direct Messages Section */}
-          <div className="text-sonic-silver font-semibold text-sm">DIRECT MESSAGES</div>
+          <div className="text-sonic-silver font-semibold text-sm">
+            DIRECT MESSAGES
+          </div>
           <DirectMessages />
         </div>
       </SecondaryColumn>
