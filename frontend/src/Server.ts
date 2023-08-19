@@ -181,6 +181,52 @@ export const Server = () => {
         },
         { timing: 1000 }
       );
+      this.get(
+        "/friend-requests",
+        () => {
+          return {
+            friendRequests: [
+              {
+                userName: "Alan",
+                avatar: "https://i.ibb.co/27jBR0k/Group-582.png",
+                status: "accepted",
+                date: "2023-08-23",
+              },
+              {
+                userName: "John",
+                avatar: "https://i.ibb.co/2tPQWMG/Group-583.png",
+                status: "declined",
+                date: "2023-09-19",
+              },
+              {
+                userName: "Jane",
+                avatar: "https://i.ibb.co/LZxnJhS/Group-584.png",
+                status: "declined",
+                date: "2023-10-19",
+              },
+              {
+                userName: "Emily",
+                avatar: "https://i.ibb.co/kQdqcSs/Group-585.png",
+                status: "accepted",
+                date: "2023-11-13",
+              },
+              {
+                userName: "Andrew",
+                avatar: "https://i.ibb.co/kQdqcSs/Group-585.png",
+                status: "declined",
+                date: "2023-11-13",
+              },
+              {
+                userName: "Selena",
+                avatar: "https://i.ibb.co/kQdqcSs/Group-585.png",
+                status: "accepted",
+                date: "2023-11-13",
+              },
+            ],
+          };
+        },
+        { timing: 1000 }
+      );
     },
   });
 };

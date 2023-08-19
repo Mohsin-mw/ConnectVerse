@@ -18,3 +18,19 @@ export function classNames(...classes: string[]): string {
   // Filter out falsy class names and join the remaining ones with a space separator
   return classes.filter(Boolean).join(" ");
 }
+
+/**
+ * Creates a new date formatter.
+ */
+const dateFormatter = new Intl.DateTimeFormat("en-us", {
+  dateStyle: "medium",
+});
+
+/**
+ * Utility function to format dates.
+ * @param date Takes date as a string
+ * @returns formatted date as defined in dateFormatter
+ */
+export function formatDate(date: string) {
+  return dateFormatter.format(new Date(date));
+}

@@ -15,9 +15,9 @@ const FriendsPrimaryColumn = () => {
         <TopBar />
       </div>
       <div className="flex flex-row h-full">
-        <div className="w-full px-8 py-4 text-sonic-silver ">
+        <div className="w-full px-8 py-4 text-french-gray overflow-y-auto max-h-[calc(100vh_-_64px)]">
           <FriendSearch />
-          <div className="my-4">ONLINE - 5</div>
+          <div className="font-medium text-sm my-3">ONLINE - 5</div>
           {friends.map((friend) => (
             <FriendCard friend={friend} />
           ))}

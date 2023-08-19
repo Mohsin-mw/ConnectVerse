@@ -35,7 +35,7 @@ const ServerCard = ({ server }: ServerCardProps) => (
           <img className="h-5 w-5 relative top-1" src={verified} alt="" />
           {server.Name}
         </h4>
-        <p className="text-sm my-4 leading-relaxed text-french-gray">
+        <p className="text-sm my-4 leading-relaxed text-start text-french-gray">
           {server.Description}
         </p>
       </div>
