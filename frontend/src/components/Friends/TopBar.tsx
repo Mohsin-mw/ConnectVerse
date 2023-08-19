@@ -1,7 +1,6 @@
-import friendIcon from "../../assets/icons/friends.svg";
+import { Icons, InboxPopup } from "..";
 import helpIcon from "../../assets/icons/help.svg";
 import msgIcon from "../../assets/icons/messageIcon.svg";
-import InboxPopup from "../Dashboard/InboxPopup";
 
 /**
  * Topbar component represents the section containing various buttons and icons.
@@ -14,7 +13,7 @@ function TopBar() {
       {/* User Profile Button : Will be used later to open profile modal */}
       <div className="flex">
         <button className="flex border-r font-semibold gap-2 text-sm items-center pr-5 border-sonic-silver">
-          <img src={friendIcon} /> Friends
+          <Icons.Friend className="text-french-gray" /> Friends
         </button>
         {/*  Buttons for online all pending blocked add friend */}
         <div className="flex ml-4 font-medium gap-2 [&>button]:shrink-0 text-sm text-french-gray">

@@ -14,8 +14,8 @@
  */
 
 import { Link } from "react-router-dom";
+import { ExtractKeys } from "../../common";
 import { classNames } from "../../utils/Helpers";
-import { ExtractKeys, Prettify } from "../../common";
 
 const baseStyles = {
   solid:
