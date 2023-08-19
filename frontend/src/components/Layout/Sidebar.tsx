@@ -11,7 +11,7 @@ import { useState } from "react";
 const Sidebar = () => {
   // Hook to receive Servers
   const { servers } = useServers();
-  const [server, setServer] = useState(true);
+  const [server, setServer] = useState(false);
   return (
     <div className="hidden lg:flex lg:flex-shrink-0">
       <div className="flex w-[4.5rem] flex-col">

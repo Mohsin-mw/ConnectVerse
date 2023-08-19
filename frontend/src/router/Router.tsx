@@ -28,10 +28,14 @@ const Router = createBrowserRouter([
     element: <SignIn />,
   },
   {
-    path: "/dashboard",
+    path: "/",
     element: <Layout />,
     errorElement: <Error />,
     children: [
+      {
+        path: "/dashboard/friends",
+        element: <Friends />,
+      },
       {
         path: "/dashboard",
         element: <Dashboard />,
@@ -39,10 +43,6 @@ const Router = createBrowserRouter([
       {
         path: "/dashboard/explore",
         element: <Explore />,
-      },
-      {
-        path: "/dashboard/friends",
-        element: <Friends />,
       },
       {
         path: "/dashboard/servers",
