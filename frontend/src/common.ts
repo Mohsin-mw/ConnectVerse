@@ -4,6 +4,14 @@ export interface Servers {
   icon: string;
 }
 
+// User Type
+
+export interface User {
+  name: string;
+  userName: string;
+  avatar: string;
+}
+
 // Direct Messages Type
 
 export interface DirectMessages {
@@ -20,14 +28,6 @@ export interface Friend extends DirectMessages {
   status: Status;
 }
 
-// User Type
-
-export interface User {
-  name: string;
-  userName: string;
-  avatar: string;
-}
-
 export interface ExploreServer {
   Image: string;
   Icon: string;
@@ -37,3 +37,23 @@ export interface ExploreServer {
   membersOnline: string;
   membersTotal: string;
 }
+
+// FriendRequest Type
+export interface FriendRequest extends Pick<User, "userName" | "avatar"> {
+  status: "accepted" | "declined";
+  date: string;
+}
+
+// ---- TYPE HELPERS
+/**
+ * Extracts keys as a union from a type
+ * @example
+ * interface Variant{
+ *  solid:string
+ *  outline:string
+ * }
+ * type VariantKeys = ExtractKeys<Variant>
+ * @returns
+ * From example : "solid" | "outline"
+ */
+export type ExtractKeys<T> = keyof T;

@@ -1,7 +1,6 @@
 // Import required modules from the React library
 import { createContext, useState } from "react";
 import { User } from "../common";
-import useUser from "../hooks/useUser";
 
 // Create a new UserContext object with an initial value
 
@@ -24,8 +23,12 @@ export const UserContext = createContext<UserContextType>({
 
 // Export the UserProvider component
 export function UserProvider({ children }: { children: React.ReactNode }) {
-  const { user: dummyUser } = useUser();
-  const [user, setUser] = useState<UserContextType["user"]>(dummyUser);
+  
+  const [user, setUser] = useState<UserContextType["user"]>({
+    name: "Mohsin",
+    userName: "m_m_w",
+    avatar: "https://i.ibb.co/h8C6k3R/Server-2.png",
+  });
 
   // Provide the value to the UserContext using the UserContext.Provider
   return (

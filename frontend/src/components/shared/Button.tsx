@@ -15,6 +15,7 @@
 
 import { Link } from "react-router-dom";
 import { classNames } from "../../utils/Helpers";
+import { ExtractKeys, Prettify } from "../../common";
 
 const baseStyles = {
   solid:
@@ -30,7 +31,9 @@ type VariantStyle = {
   primary?: string;
 };
 
-const variantStyles: { [variant in "solid" | "outline"]: VariantStyle } = {
+const variantStyles: {
+  [variant in ExtractKeys<typeof baseStyles>]: VariantStyle;
+} = {
   solid: {
     slate:
       "bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900",
@@ -54,8 +57,8 @@ const Button = ({
   href,
   ...props
 }: {
-  variant?: "solid" | "outline";
-  color?: "slate" | "blue" | "white" | "primary";
+  variant?: ExtractKeys<typeof baseStyles>;
+  color?: ExtractKeys<VariantStyle>;
   className?: string;
   href?: string;
   [x: string]: any; // Optional additional props
