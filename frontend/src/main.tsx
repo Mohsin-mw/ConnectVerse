@@ -18,7 +18,7 @@ import { LoadingProvider } from "./context/LoaderProvider.tsx";
 
 import { Server } from "./Server";
 
-Server();
+// Server();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

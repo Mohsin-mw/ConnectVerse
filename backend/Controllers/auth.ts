@@ -1,55 +1,98 @@
 import { Request, Response, NextFunction } from "express";
-
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
-const userdata = require("../Models/userSchema.ts");
+import jwt, { JwtPayload } from "jsonwebtoken";
+import User, { IUser } from "../Models/userSchema";
 
 const signup = async (req: Request, res: Response) => {
-	try {
-		const { username, email, password } = req.body;
-		const userByName = await userdata.findOne({ username });
-		if (userByName) return res.status(409).json({ error: "Username already exists" });
+  try {
+    const { name, email, password } = req.body;
 
-		const userByEmail = await userdata.findOne({ email });
-		if (userByEmail) return res.status(409).json({ error: "email already exists" });
+    if (!name || !email || !password) {
+      return res.status(400).json({ error: "Fields can't be empty!" });
+    }
 
-		const uploadData = await userdata.create({ username, email, password });
-	} catch (err) {
-		res.status(501).send("something went wrong");
-	}
+    // Checking if email already exist
+    const emailExist = await User.findOne({ email });
+    if (emailExist) {
+      return res.status(400).json({ error: "Email already exist" });
+    }
+
+    //Registering user here
+    const newUser: IUser = new User({ name, email, password });
+    await newUser.save();
+
+    return res.status(200).json({ message: "Signup successfull", newUser });
+  } catch (error) {
+    return res.status(500).json({ error });
+  }
 };
 
 const signin = async (req: Request, res: Response) => {
-	try {
-		const { email, password } = req.body;
-		const userInfo = await userdata.findOne({ email, password });
-		if (!userInfo) res.status(401).send({ error: "invalid credentials" });
+  console.log("in signin");
+  try {
+    const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ error: "Fields can't be empty!" });
+    }
 
-		const jwtToken = jwt.sign({ email, password }, process.env.JWT_SECRET_KEY, { expiresIn: "20d" });
-		res.status(200).cookie("authtoken", jwtToken, { secure: true, httpOnly: true }).send({ message: "login succesfull" });
-	} catch (err) {
-		res.status(501).send("something went wrong");
-	}
+    // Checking User Credentials----------------
+    // checking email
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ error: "Invalid Credentials" });
+    }
+    // Verifying Password
+    if (user.password !== password) {
+      return res.status(400).json({ error: "Invalid Credentials" });
+    }
+
+    // If user credentials are correct
+    const token = jwt.sign(
+      { userID: user._id },
+      process.env.SECRET_KEY as string
+    );
+
+    // Setting the cookie
+    res.cookie("token", token, { httpOnly: true });
+
+    return res.status(200).json({ message: "Signin Successfull", user, token });
+  } catch (error) {
+    return res.status(500).json({ error });
+  }
 };
 
 const authVerify = async (req: Request, res: Response, next: NextFunction) => {
-	try {
-		const verifyJwt = await jwt.decode(req.cookies.authToken, process.env.JWT_SECRET_KEY);
+  console.log("in authVerify");
+  console.log(req.cookies.token);
 
-		if (verifyJwt) {
-			const checkUser = await userdata.findOne({ username: verifyJwt.username, password: verifyJwt.password });
-			if (checkUser) {
-				req.body = { ...req.body, email: verifyJwt.username, password: verifyJwt.password };
-				next();
-			} else {
-				res.status(401).send("token expired");
-			}
-		} else {
-			res.status(401).send("authentication failed login again");
-		}
-	} catch (err) {
-		res.status(501).send("something went wrong");
-	}
+  try {
+    const token = req.cookies.token;
+    if (!token) {
+      return res.status(400).json({ error: "No token!" });
+    }
+
+    const verify = jwt.verify(
+      token,
+      process.env.SECRET_KEY as string
+    ) as JwtPayload;
+
+    console.log(verify);
+
+    if (verify === undefined) {
+      return res.status(400).json({ error: "invalid token!" });
+    }
+
+    const user = await User.findOne({ _id: verify.userID }).select("-password");
+    if (!user) {
+      return res.status(400).json({ error: "User not found" });
+    }
+
+    // req.user = user;
+    // res.status(200).json({ user: user });
+    console.log(user);
+    next();
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
 };
 
 const logout = async (req: Request, res: Response) => {};

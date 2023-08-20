@@ -52,12 +52,14 @@ const Button = ({
   color = "slate",
   className,
   href,
+  type = "button",
   ...props
 }: {
   variant?: "solid" | "outline";
   color?: "slate" | "blue" | "white" | "primary";
   className?: string;
   href?: string;
+  type?: "button" | "submit";
   [x: string]: any; // Optional additional props
 }): JSX.Element => {
   const variantStyle = variantStyles[variant];
@@ -72,7 +74,7 @@ const Button = ({
   return href ? (
     <Link to={href} className={className} {...props} />
   ) : (
-    <button className={className} {...props} />
+    <button type={type} className={className} {...props} />
   );
 };
 
