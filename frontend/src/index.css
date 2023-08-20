@@ -8,6 +8,18 @@
   }
 }
 
+::-webkit-scrollbar{
+  width: 5px;
+}
+
+::-webkit-scrollbar-track{
+  @apply bg-arsenic;
+}
+
+::-webkit-scrollbar-thumb{
+  @apply bg-raisin-black rounded-sm;
+}
+
 .loading {
   pointer-events: none;
   display: inline-block;

@@ -1,8 +1,11 @@
+import { classNames } from "../../../utils/Helpers";
+
 type InputProps = {
   label: string;
   id: string;
   type: string;
   value: string;
+  className?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 /**
@@ -15,6 +18,7 @@ type InputProps = {
  * @param {string} InputProps.id - The unique identifier for the input field.
  * @param {string} InputProps.type - The type of the input field (e.g., "text", "password", "email").
  * @param {string} InputProps.value - The current value of the input field.
+ * @param {string} InputProps.classNames - The class values for input.
  * @param {(e: React.ChangeEvent<HTMLInputElement>) => void} InputProps.onChange - The event handler for changes to the input field's value.
  * @returns {JSX.Element} - The rendered Input component.
  */
@@ -24,6 +28,7 @@ const Input = ({
   type,
   value,
   onChange,
+  className,
 }: InputProps): JSX.Element => {
   return (
     <div>
@@ -38,7 +43,10 @@ const Input = ({
           value={value}
           onChange={onChange}
           required
-          className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-primary-color-shade2 focus:outline-none focus:ring-primary-color-shade2 sm:text-sm"
+          className={classNames(
+            "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-primary-color-shade2 focus:outline-none focus:ring-primary-color-shade2 sm:text-sm",
+            className ? className : ""
+          )}
         />
       </div>
     </div>

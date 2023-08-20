@@ -14,6 +14,7 @@
  */
 
 import { Link } from "react-router-dom";
+import { ExtractKeys } from "../../common";
 import { classNames } from "../../utils/Helpers";
 
 const baseStyles = {
@@ -30,7 +31,9 @@ type VariantStyle = {
   primary?: string;
 };
 
-const variantStyles: { [variant in "solid" | "outline"]: VariantStyle } = {
+const variantStyles: {
+  [variant in ExtractKeys<typeof baseStyles>]: VariantStyle;
+} = {
   solid: {
     slate:
       "bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900",
@@ -41,7 +44,7 @@ const variantStyles: { [variant in "solid" | "outline"]: VariantStyle } = {
   },
   outline: {
     slate:
-      "border border-gray-300 ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300",
+      "border border-sonic-silver ring-sonic-silver text-sonic-silver hover:text-sonic-silver hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300",
     white:
       "ring-slate-700 text-white hover:ring-slate-500 active:ring-slate-700 active:text-slate-400 focus-visible:outline-white",
   },
@@ -55,8 +58,8 @@ const Button = ({
   type = "button",
   ...props
 }: {
-  variant?: "solid" | "outline";
-  color?: "slate" | "blue" | "white" | "primary";
+  variant?: ExtractKeys<typeof baseStyles>;
+  color?: ExtractKeys<VariantStyle>;
   className?: string;
   href?: string;
   type?: "button" | "submit";

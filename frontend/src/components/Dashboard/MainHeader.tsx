@@ -3,9 +3,8 @@ import callIcon from "../../assets/icons/call.svg";
 import videoIcon from "../../assets/icons/video.svg";
 import pinIcon from "../../assets/icons/pin.svg";
 import addFriendIcon from "../../assets/icons/add-friend.svg";
-import inboxIcon from "../../assets/icons/inbox.svg";
 import helpIcon from "../../assets/icons/help.svg";
-import { Searchbar } from "..";
+import { Searchbar, InboxPopup } from "..";
 
 /**
  * MainHeader component represents the section containing various icons.
@@ -13,7 +12,6 @@ import { Searchbar } from "..";
  */
 const MainHeader = () => (
   <div className="w-full text-white py-4 px-4 h-16 border-b-raisin-black border-b-2 items-center flex justify-between">
-    
     {/* User Profile Button : Will be used later to open profile modal */}
     <button className="flex font-semibold gap-2 text-sm items-center">
       <img src={atIcon} /> Emily{" "}
@@ -21,7 +19,7 @@ const MainHeader = () => (
     </button>
 
     {/* Header Icons For Call, VideoCall, Pin, Add Friend, Inbox and Help */}
-    <div className="flex gap-6 [&>button]:shrink-0">
+    <div className="flex gap-6 [&>button]:shrink-0 items-center">
       <button>
         <img src={callIcon} />
       </button>
@@ -35,14 +33,11 @@ const MainHeader = () => (
         <img src={addFriendIcon} />
       </button>
       <Searchbar />
-      <button>
-        <img src={inboxIcon} />
-      </button>
+      <InboxPopup />
       <button>
         <img src={helpIcon} />
       </button>
     </div>
-
   </div>
 );
 
