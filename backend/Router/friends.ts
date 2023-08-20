@@ -12,7 +12,7 @@ import { authVerify } from "../Controllers/auth";
 const friendRouter = Router();
 
 // Routes
-friendRouter.post("/fetch_Friend_Request", authVerify, fetch_Friend_Request);
+friendRouter.get("/fetch_Friend_Request", authVerify, fetch_Friend_Request);
 
 friendRouter.post("/send-friend-request", authVerify, send_Friend_Request);
 

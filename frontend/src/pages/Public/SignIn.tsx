@@ -26,7 +26,7 @@
  * ```
  */
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { BsGithub, BsFacebook, BsTwitter } from "react-icons/bs";
 import {
@@ -37,11 +37,13 @@ import {
   Button,
   Image,
 } from "../../components";
+import axios from "axios";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading] = useState(false);
+  const navigate = useNavigate();
 
   const resetForm = () => {
     setEmail("");
@@ -50,6 +52,28 @@ const SignIn = () => {
 
   const SignInHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    try {
+      const { data } = await axios.post(
+        import.meta.env.VITE_BACKEND_URL + "/auth/signin",
+        { email, password },
+        { withCredentials: true }
+      );
+
+      console.log(data);
+
+      // LOCAL STORAGE STUFF:
+      const userInfoToStore = {
+        _id: data.user._id,
+        name: data.user.name,
+        email: data.user.email,
+        pic: data.user.pic,
+      };
+      localStorage.setItem("ConnectVerseUI", JSON.stringify(userInfoToStore));
+
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
     resetForm();
   };
 
@@ -152,7 +176,7 @@ const SignIn = () => {
                 {/* Sign-In Button */}
                 <div>
                   {!loading ? (
-                    <Button variant="solid" color="primary">
+                    <Button variant="solid" color="primary" type="submit">
                       Sign In
                     </Button>
                   ) : (

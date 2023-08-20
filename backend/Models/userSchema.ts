@@ -1,13 +1,16 @@
 import mongoose, { Document, Schema, Types, model } from "mongoose";
 
-interface IUser extends Document {
+export interface IUser extends Document {
   name: string;
   email: string;
   password: string;
   pic: string;
 
-  friends: Array<{
+  friends?: Array<{
     user: Types.ObjectId;
+    name: string;
+    email: string;
+    pic: string;
     status: "pending" | "accepted" | "rejected";
   }>;
 }
@@ -16,11 +19,20 @@ const UserSchema = new Schema<IUser>({
   name: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
-  pic: { type: String, default: "a default pic link" },
+
+  pic: {
+    type: String,
+    default:
+      "https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-541.jpg?w=740",
+  },
 
   friends: [
     {
       user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+      name: { type: String },
+      email: { type: String },
+      pic: { type: String },
+
       status: {
         type: String,
         enum: ["pending", "accepted", "rejected"],

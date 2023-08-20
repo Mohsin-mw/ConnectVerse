@@ -55,12 +55,14 @@ const Button = ({
   color = "slate",
   className,
   href,
+  type = "button",
   ...props
 }: {
   variant?: ExtractKeys<typeof baseStyles>;
   color?: ExtractKeys<VariantStyle>;
   className?: string;
   href?: string;
+  type?: "button" | "submit";
   [x: string]: any; // Optional additional props
 }): JSX.Element => {
   const variantStyle = variantStyles[variant];
@@ -75,7 +77,7 @@ const Button = ({
   return href ? (
     <Link to={href} className={className} {...props} />
   ) : (
-    <button className={className} {...props} />
+    <button type={type} className={className} {...props} />
   );
 };
 

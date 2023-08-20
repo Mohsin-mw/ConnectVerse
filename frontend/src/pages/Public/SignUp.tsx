@@ -29,6 +29,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Button, Image, Input, Logo, RememberMe } from "../../components";
+import axios from "axios";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -45,6 +46,21 @@ const SignUp = () => {
 
   const SignUpHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    try {
+      if (password != confirmPassword) {
+        window.alert("Password doesn't match");
+        return;
+      }
+
+      const { data } = await axios.post(
+        import.meta.env.VITE_BACKEND_URL + "/auth/signup",
+        { name, email, password }
+      );
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
     resetForm();
   };
 
@@ -113,7 +129,7 @@ const SignUp = () => {
                   <RememberMe onClick={() => {}} />
                 </div>
                 {/* Sign-up button */}
-                <Button variant="solid" color="primary">
+                <Button variant="solid" color="primary" type="submit">
                   Sign Up
                 </Button>
               </form>
