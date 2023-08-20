@@ -86,7 +86,7 @@ const authVerify = async (req: Request, res: Response, next: NextFunction) => {
       return res.status(400).json({ error: "User not found" });
     }
 
-    // req.user = user;
+    req.user = user;
     // res.status(200).json({ user: user });
     console.log(user);
     next();
