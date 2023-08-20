@@ -60,6 +60,17 @@ const SignIn = () => {
       );
 
       console.log(data);
+
+      // LOCAL STORAGE STUFF:
+      const userInfoToStore = {
+        _id: data.user._id,
+        name: data.user.name,
+        email: data.user.email,
+        pic: data.user.pic,
+      };
+      localStorage.setItem("ConnectVerseUI", JSON.stringify(userInfoToStore));
+
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }

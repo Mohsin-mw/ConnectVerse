@@ -25,13 +25,13 @@ const FriendCard = ({ friend }: FriendCardProps): JSX.Element => {
       <div className="flex flex-row">
         {/* Friend Avatar */}
         <img
-          className="object-cover w-10 h-10"
-          src={friend.avatar}
-          alt={`${friend.userName}'s avatar`}
+          className="object-cover w-10 h-10 rounded-full"
+          src={friend.pic}
+          // alt={`${friend.userName}'s avatar`}
         />
         <div className="flex flex-col items-start justify-start px-2">
           {/* Friend Username */}
-          <div className="text-lg">{friend.userName}</div>
+          <div className="text-lg">{friend?.name}</div>
           {/* Friend Status */}
           <div className="text-sm">{friend.status}</div>
         </div>

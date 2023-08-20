@@ -61,8 +61,7 @@ const signin = async (req: Request, res: Response) => {
 };
 
 const authVerify = async (req: Request, res: Response, next: NextFunction) => {
-  console.log("in authVerify");
-  console.log(req.cookies.token);
+  // console.log("in authVerify");
 
   try {
     const token = req.cookies.token;
@@ -75,7 +74,7 @@ const authVerify = async (req: Request, res: Response, next: NextFunction) => {
       process.env.SECRET_KEY as string
     ) as JwtPayload;
 
-    console.log(verify);
+    // console.log(verify);
 
     if (verify === undefined) {
       return res.status(400).json({ error: "invalid token!" });
@@ -88,7 +87,7 @@ const authVerify = async (req: Request, res: Response, next: NextFunction) => {
 
     req.user = user;
     // res.status(200).json({ user: user });
-    console.log(user);
+    // console.log(user);
     next();
   } catch (error) {
     return res.status(400).json({ error });

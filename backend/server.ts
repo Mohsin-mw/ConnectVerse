@@ -22,7 +22,7 @@ app.use(cors({ origin: process.env.FRONTEND, credentials: true }));
 
 // ROUTES
 app.use("/auth", authRouter);
-// app.use("/friends", friendRouter);
+app.use("/friends", friendRouter);
 
 // Starting Server
 const startServer = async () => {

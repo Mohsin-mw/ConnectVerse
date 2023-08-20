@@ -3,16 +3,20 @@ import User from "../Models/userSchema";
 
 const fetch_Friend_Request = async (req: Request, res: Response) => {
   const loggedUser = req.user;
+
   if (!loggedUser) {
     return res.status(400).json({ error: "User not found (req.user)" });
   }
 
   try {
-    const friendRequests = loggedUser.friends?.filter((e) => {
-      return e.status === "pending";
-    });
+    // Fetching friend request object
+    const friendRequests = loggedUser.friends?.filter(
+      (e) => e.status === "pending"
+    );
 
-    if (friendRequests?.length === 0) {
+    console.log("huehue", friendRequests);
+
+    if (!friendRequests || friendRequests.length === 0) {
       return res.json({ message: "You have no friend requests!!" });
     }
 
@@ -23,7 +27,9 @@ const fetch_Friend_Request = async (req: Request, res: Response) => {
 };
 
 const send_Friend_Request = async (req: Request, res: Response) => {
-  const user_to_send_req_ID: string = req.body;
+  const { user_to_send_req_ID }: { user_to_send_req_ID: string } = req.body;
+  if (!user_to_send_req_ID)
+    return res.status(400).json({ error: "No user selected to send req to" });
 
   const loggedUser = req.user;
   if (!loggedUser) {
@@ -38,8 +44,20 @@ const send_Friend_Request = async (req: Request, res: Response) => {
         message: "User you trying to send friend request to doesn't exist.",
       });
 
+    // Checking if Request already exists:
+    const alreadyExist = user_To_Send_Request.friends?.find((e) =>
+      e.user.equals(loggedUser._id)
+    );
+    if (alreadyExist?.status === "pending")
+      return res.json({ message: "Friend Request already exists" });
+    if (alreadyExist?.status === "accepted")
+      return res.json({ message: "Already friends" });
+
     user_To_Send_Request.friends?.push({
       user: loggedUser._id,
+      name: loggedUser.name,
+      email: loggedUser.email,
+      pic: loggedUser.pic,
       status: "pending",
     });
 
@@ -87,6 +105,9 @@ const respond_To_Friend_Request = async (req: Request, res: Response) => {
 
       sender.friends?.push({
         user: loggedUser._id,
+        name: loggedUser.name,
+        email: loggedUser.email,
+        pic: loggedUser.pic,
         status: "accepted",
       });
       await sender.save();
@@ -148,7 +169,7 @@ const fetchFriends = async (req: Request, res: Response) => {
 
   try {
     const friends = loggedUser.friends?.filter((e) => e.status === "accepted");
-    if (!friends) {
+    if (friends?.length === 0) {
       return res.json({ message: "You have no friends!!!! GET A LIFE" });
     }
 

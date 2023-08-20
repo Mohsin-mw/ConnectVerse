@@ -7,8 +7,8 @@ export interface Servers {
 // Direct Messages Type
 
 export interface DirectMessages {
-  userName: string;
-  avatar: string;
+  name: string;
+  pic: string;
 }
 
 // Status

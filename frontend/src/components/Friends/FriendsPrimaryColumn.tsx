@@ -3,9 +3,40 @@ import useFriends from "../../hooks/useFriends";
 import FriendCard from "./FriendCard";
 import ActiveNow from "./ActiveNow";
 import TopBar from "./TopBar";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const FriendsPrimaryColumn = () => {
-  const { friends } = useFriends();
+  // const { friends } = useFriends();
+
+  interface Friends {
+    name: string;
+    emial: string;
+    pic: string;
+    status: string;
+    user: string;
+    _id: string;
+  }
+  const [friends, setFriends] = useState<Friends[]>([]);
+
+  const fetchFriends = async () => {
+    try {
+      const { data } = await axios.get(
+        import.meta.env.VITE_BACKEND_URL + "/friends/fetchFriends",
+        { withCredentials: true }
+      );
+
+      console.log(data);
+      setFriends(data.friends);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchFriends();
+  }, []);
+
   return (
     <section
       aria-labelledby="primary-heading"

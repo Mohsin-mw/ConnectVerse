@@ -8,6 +8,9 @@ export interface IUser extends Document {
 
   friends?: Array<{
     user: Types.ObjectId;
+    name: string;
+    email: string;
+    pic: string;
     status: "pending" | "accepted" | "rejected";
   }>;
 }
@@ -26,6 +29,10 @@ const UserSchema = new Schema<IUser>({
   friends: [
     {
       user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+      name: { type: String },
+      email: { type: String },
+      pic: { type: String },
+
       status: {
         type: String,
         enum: ["pending", "accepted", "rejected"],
