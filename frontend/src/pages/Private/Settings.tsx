@@ -1,4 +1,5 @@
-import { Link, Outlet } from "react-router-dom";
+import { XCircleIcon } from "@heroicons/react/24/outline";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { SettingButtons } from "../../constants/Constants";
 
 /**
@@ -7,6 +8,7 @@ import { SettingButtons } from "../../constants/Constants";
  * @component
  */
 const Settings = () => {
+  const navigate = useNavigate();
   return (
     <div className="h-full flex flex-row text-sonic-silver">
       {/* User Settings Sidebar */}
@@ -25,8 +27,17 @@ const Settings = () => {
         </div>
       </div>
       {/* Settings Content */}
-      <div className="w-full h-full bg-dark-charcoal py-10 pl-6">
+      <div className="w-full relative h-full bg-dark-charcoal py-10 pl-6">
         <div className="w-1/2">
+          {/* Escape Or Back Button */}
+          <button
+            onClick={() => navigate("/dashboard")}
+            className="absolute flex flex-col leading-tight items-center group text-sm text-sonic-silver right-20 top-10"
+          >
+            <XCircleIcon className="w-10 h-10 mb-1 group-hover:text-white transition-colors" />
+            Back to
+            <br /> dashboard
+          </button>
           {/* Render nested route components */}
           <Outlet />
         </div>
