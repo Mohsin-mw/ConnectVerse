@@ -12,7 +12,7 @@ const port = 8000;
 // ROUTER
 import authRouter from "./Router/auth";
 import friendRouter from "./Router/friends";
-import { authVerify } from "./Controllers/auth";
+import serverRouter from "./Router/server";
 
 // MIDDELWARE
 app.use(express.urlencoded({ extended: true }));
@@ -23,6 +23,7 @@ app.use(cors({ origin: process.env.FRONTEND, credentials: true }));
 // ROUTES
 app.use("/auth", authRouter);
 app.use("/friends", friendRouter);
+app.use("/server", serverRouter);
 
 // Starting Server
 const startServer = async () => {

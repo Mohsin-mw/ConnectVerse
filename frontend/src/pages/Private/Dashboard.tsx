@@ -3,6 +3,7 @@
  * @component
  */
 
+import { useNavigate } from "react-router-dom";
 import {
   DirectMessages,
   FriendsSection,
@@ -10,12 +11,22 @@ import {
   SearchSection,
   SecondaryColumn,
 } from "../../components";
+import { useEffect } from "react";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!localStorage.getItem("ConnectVerseUI")) {
+      window.alert("signin again");
+      navigate("/signin");
+    }
+  }, []);
+
   return (
     <main className="flex flex-1 overflow-hidden">
       {/* Primary Column */}
-      <PrimaryColumn />
+      {/* <PrimaryColumn /> */}
       {/* Secondary Column : Sidebar */}
       <SecondaryColumn>
         {/* Search Bar Section */}

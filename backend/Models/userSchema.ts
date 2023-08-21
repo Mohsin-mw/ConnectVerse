@@ -13,6 +13,11 @@ export interface IUser extends Document {
     pic: string;
     status: "pending" | "accepted" | "rejected";
   }>;
+
+  server?: Array<{
+    serverID: Types.ObjectId;
+    isOwner: boolean;
+  }>;
 }
 
 const UserSchema = new Schema<IUser>({
@@ -38,6 +43,13 @@ const UserSchema = new Schema<IUser>({
         enum: ["pending", "accepted", "rejected"],
         default: "pending",
       },
+    },
+  ],
+
+  server: [
+    {
+      serverID: { type: mongoose.Schema.Types.ObjectId, ref: "Server" },
+      isOwner: { type: Boolean },
     },
   ],
 });
