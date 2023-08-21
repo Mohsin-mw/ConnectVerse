@@ -5,9 +5,11 @@ import ActiveNow from "./ActiveNow";
 import TopBar from "./TopBar";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FriendsPrimaryColumn = () => {
   // const { friends } = useFriends();
+  const navigate = useNavigate();
 
   interface Friends {
     name: string;
@@ -30,6 +32,11 @@ const FriendsPrimaryColumn = () => {
       setFriends(data.friends);
     } catch (error) {
       console.log(error);
+
+      if (error.response.data.error === "No token!") {
+        window.alert("you have to login again");
+        navigate("/signin");
+      }
     }
   };
 
