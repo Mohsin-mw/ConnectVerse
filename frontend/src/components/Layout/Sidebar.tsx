@@ -2,16 +2,45 @@ import { Link } from "react-router-dom";
 import useServers from "../../hooks/useServers";
 import logo from "../../assets/logo.png";
 import { ServerModal } from "..";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 /**
  * Sidebar component that displays navigation links and icons.
  * @component
  */
 const Sidebar = () => {
   // Hook to receive Servers
-  const { servers } = useServers();
+  // const { servers } = useServers();
+  interface Server {
+    channels: string[];
+    members: string[];
+    owner: string;
+    pic: string;
+    serverName: string;
+    _id: string;
+  }
+  const [servers, setServers] = useState<Server[]>([]);
   const [server, setServer] = useState(false);
+
+  // Fetching servers:
+  const fetchServers = async () => {
+    try {
+      const { data } = await axios.get(
+        import.meta.env.VITE_BACKEND_URL + "/server/fetch-server",
+        { withCredentials: true }
+      );
+      // console.log(data);
+      const serverData: Server[] = data.servers;
+      setServers(serverData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchServers();
+  }, []);
+
   return (
     <div className="hidden lg:flex lg:flex-shrink-0">
       <div className="flex w-[4.5rem] flex-col">
@@ -33,12 +62,15 @@ const Sidebar = () => {
               {servers &&
                 servers.map((server) => (
                   <Link
-                    key={server.name}
+                    key={server._id}
                     to="/dashboard"
                     className="flex items-center rounded-lg"
                   >
-                    <img className="w-12 h-12 object-cover" src={server.icon} />
-                    <span className="sr-only">{server.name}</span>
+                    <img
+                      className="w-12 h-12 object-cover rounded-full"
+                      src={server.pic}
+                    />
+                    <span className="sr-only">{server.serverName}</span>
                   </Link>
                 ))}
 
