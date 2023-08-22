@@ -20,6 +20,7 @@
   @apply bg-raisin-black rounded-sm;
 }
 
+
 .loading {
   pointer-events: none;
   display: inline-block;

@@ -1,25 +1,16 @@
-import { FriendSearch } from "..";
-import useFriends from "../../hooks/useFriends";
-import FriendCard from "./FriendCard";
-import ActiveNow from "./ActiveNow";
-import TopBar from "./TopBar";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FriendSearch } from "..";
+import { Friend } from "../../common";
+import ActiveNow from "./ActiveNow";
+import FriendCard from "./FriendCard";
+import TopBar from "./TopBar";
 
 const FriendsPrimaryColumn = () => {
   // const { friends } = useFriends();
   const navigate = useNavigate();
-
-  interface Friends {
-    name: string;
-    emial: string;
-    pic: string;
-    status: string;
-    user: string;
-    _id: string;
-  }
-  const [friends, setFriends] = useState<Friends[]>([]);
+  const [friends, setFriends] = useState<Friend[]>([]);
 
   const fetchFriends = async () => {
     try {
@@ -56,8 +47,8 @@ const FriendsPrimaryColumn = () => {
         <div className="w-full px-8 py-4 text-french-gray overflow-y-auto max-h-[calc(100vh_-_64px)]">
           <FriendSearch />
           <div className="font-medium text-sm my-3">ONLINE - 5</div>
-          {friends.map((friend) => (
-            <FriendCard friend={friend} />
+          {friends?.map((friend) => (
+            <FriendCard key={friend._id} friend={friend} />
           ))}
         </div>
         <ActiveNow />

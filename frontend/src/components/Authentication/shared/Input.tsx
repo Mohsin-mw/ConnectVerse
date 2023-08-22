@@ -6,6 +6,7 @@ type InputProps = {
   type: string;
   value: string;
   className?: string;
+  labelClassName?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 /**
@@ -29,10 +30,17 @@ const Input = ({
   value,
   onChange,
   className,
+  labelClassName,
 }: InputProps): JSX.Element => {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-gray-700">
+      <label
+        htmlFor={id}
+        className={classNames(
+          "block text-sm font-medium text-gray-700",
+          labelClassName
+        )}
+      >
         {label}
       </label>
       <div className="mt-1">
