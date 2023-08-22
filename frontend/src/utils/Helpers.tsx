@@ -14,7 +14,7 @@
  * Returns: "button primary"
  * const emptyClass = classNames("", "button", "primary");
  */
-export function classNames(...classes: string[]): string {
+export function classNames(...classes: Array<string | undefined>): string {
   // Filter out falsy class names and join the remaining ones with a space separator
   return classes.filter(Boolean).join(" ");
 }

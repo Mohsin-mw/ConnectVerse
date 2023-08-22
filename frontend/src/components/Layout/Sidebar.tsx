@@ -3,6 +3,7 @@ import useServers from "../../hooks/useServers";
 import logo from "../../assets/logo.png";
 import { ServerModal } from "..";
 import { useState } from "react";
+import Tooltip from "../shared/Tooltip";
 
 /**
  * Sidebar component that displays navigation links and icons.
@@ -15,7 +16,7 @@ const Sidebar = () => {
   return (
     <div className="hidden lg:flex lg:flex-shrink-0">
       <div className="flex w-[4.5rem] flex-col">
-        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-raisin-black px-2">
+        <div className="flex min-h-0 flex-1 flex-col bg-raisin-black px-2">
           <div className="flex-1">
             {/* Discord Logo */}
             <Link
@@ -43,19 +44,23 @@ const Sidebar = () => {
                 ))}
 
               {/* Add Server Button */}
-              <img
-                onClick={() => setServer(!server)}
-                className="cursor-pointer"
-                src="https://i.ibb.co/12qq3Ly/Add-Server.png"
-              />
+              <Tooltip title="Create New Server">
+                <img
+                  onClick={() => setServer(!server)}
+                  className="cursor-pointer"
+                  src="https://i.ibb.co/12qq3Ly/Add-Server.png"
+                />
+              </Tooltip>
 
               {/* Discovery Button */}
-              <Link to="/dashboard/explore">
-                <img
-                  className="cursor-pointer"
-                  src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
-                />
-              </Link>
+              <Tooltip title="Explore Servers">
+                <Link to="/dashboard/explore">
+                  <img
+                    className="cursor-pointer"
+                    src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
+                  />
+                </Link>
+              </Tooltip>
             </div>
           </div>
         </div>
