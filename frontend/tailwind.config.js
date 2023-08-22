@@ -14,7 +14,7 @@ export default {
         onyx: "#36393F",
         green: "#3BA55D",
         grey: "#C4C4C4",
-        "grey-border": "#38393f"
+        "grey-border": "#38393f",
       },
       fontFamily: {
         "passion-one": ['"Passion One"', "cursive"],
@@ -23,6 +23,15 @@ export default {
       backgroundImage: {
         illustration: "url(/src/assets/PrimaryBackground.png)",
         auth: "url(/src/assets/authBackground.png)",
+      },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 100ms ease-in forwards",
       },
     },
   },

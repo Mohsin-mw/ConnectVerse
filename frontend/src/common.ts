@@ -23,9 +23,14 @@ export interface DirectMessages {
 type Status = "online" | "offline" | "busy";
 
 // Friend Type
-export interface Friend extends DirectMessages {
-  activity: string;
-  status: Status;
+export interface Friend {
+  name: string;
+  emial: string;
+  pic: string;
+  //eslint-disable-next-line
+  status: Status | (string & {});
+  user: string;
+  _id: string;
 }
 
 export interface ExploreServer {
