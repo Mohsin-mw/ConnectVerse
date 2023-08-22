@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import useServers from "../../hooks/useServers";
 import logo from "../../assets/logo.png";
-import { ServerModal } from "..";
+import { ServerModal, Tooltip } from "..";
 import { useEffect, useState } from "react";
 import axios from "axios";
 /**
@@ -82,12 +82,14 @@ const Sidebar = () => {
               />
 
               {/* Discovery Button */}
-              <Link to="/dashboard/explore">
-                <img
-                  className="cursor-pointer"
-                  src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
-                />
-              </Link>
+              <Tooltip title="Explore ServersF">
+                <Link to="/dashboard/explore">
+                  <img
+                    className="cursor-pointer"
+                    src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
+                  />
+                </Link>
+              </Tooltip>
             </div>
           </div>
         </div>
