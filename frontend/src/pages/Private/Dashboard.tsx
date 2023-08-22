@@ -12,6 +12,7 @@ import {
   SecondaryColumn,
 } from "../../components";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ const Dashboard = () => {
   useEffect(() => {
     if (!localStorage.getItem("ConnectVerseUI")) {
       window.alert("signin again");
+      toast.error("signin again");
       navigate("/signin");
     }
   }, []);

@@ -30,6 +30,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Button, Image, Input, Logo, RememberMe } from "../../components";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -49,6 +50,7 @@ const SignUp = () => {
     try {
       if (password != confirmPassword) {
         window.alert("Password doesn't match");
+        toast.error("Password doesn't match");
         return;
       }
 

@@ -10,6 +10,10 @@ import { useLoading } from "./hooks/useLoader";
 // Import Loader
 import Loader from "./components/shared/Loader";
 
+//Import react toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 /**
  * The main App component that serves as the entry point for the React application.
  * It provides routing capabilities using `RouterProvider` from `react-router-dom`.
@@ -26,6 +30,9 @@ function App() {
     <>
       {/* Display the `Loader` component when `loading` is `true` */}
       {loading && <Loader />}
+
+      {/* Create the `ToastContainer` component that is required for react-toastify to work */}
+      <ToastContainer />
 
       {/* Provide routing capabilities using `RouterProvider` */}
       <RouterProvider router={Router} />
