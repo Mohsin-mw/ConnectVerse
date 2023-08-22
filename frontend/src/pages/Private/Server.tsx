@@ -5,7 +5,7 @@ const Server = () => {
     <main className="flex flex-1 overflow-hidden ">
       {/* Secondary Column */}
       <SecondaryColumn>server sidebar</SecondaryColumn>
-      
+
       <PrimaryColumn />
     </main>
   );

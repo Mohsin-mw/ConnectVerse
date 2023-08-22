@@ -38,6 +38,7 @@ import {
   Image,
 } from "../../components";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -70,11 +71,14 @@ const SignIn = () => {
       };
       localStorage.setItem("ConnectVerseUI", JSON.stringify(userInfoToStore));
 
+      toast.success(data.message);
       navigate("/dashboard");
+
+      resetForm();
     } catch (error) {
       console.log(error);
+      toast.error(error.response.data.error);
     }
-    resetForm();
   };
 
   return (
