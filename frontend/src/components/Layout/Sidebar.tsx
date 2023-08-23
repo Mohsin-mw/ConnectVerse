@@ -43,18 +43,15 @@ const Sidebar = () => {
   return (
     <div className="hidden lg:flex lg:flex-shrink-0">
       <div className="flex w-[4.5rem] flex-col">
-        <div className="flex min-h-0 flex-1 flex-col bg-raisin-black px-2">
-          {/* make below container scrollable */}
+        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-raisin-black px-2">
           <div className="flex-1">
             {/* Discord Logo */}
-            <Tooltip title="Dashboard">
-              <Link
-                to="/dashboard"
-                className="flex items-center justify-center py-4 border-b-dark-charcoal border-b-2"
-              >
-                <img className="h-8 scale-150 w-auto" src={logo} />
-              </Link>
-            </Tooltip>
+            <Link
+              to="/dashboard"
+              className="flex items-center justify-center py-4 border-b-dark-charcoal border-b-2"
+            >
+              <img className="h-8 scale-150 w-auto" src={logo} />
+            </Link>
 
             {/* Server Links */}
             <div
@@ -66,7 +63,7 @@ const Sidebar = () => {
                   <Tooltip title={server.serverName}>
                     <Link
                       key={server._id}
-                      to="/dashboard"
+                      to={`/dashboard/servers/${server._id}`}
                       className="flex items-center rounded-lg"
                     >
                       <img
@@ -79,24 +76,19 @@ const Sidebar = () => {
                 ))}
 
               {/* Add Server Button */}
-              <Tooltip title="Create new server">
-                <button
-                  aria-label="Create new server"
-                  onClick={() => setServer(!server)}
-                >
-                  <img src="https://i.ibb.co/12qq3Ly/Add-Server.png" />
-                </button>
-              </Tooltip>
+              <img
+                onClick={() => setServer(!server)}
+                className="cursor-pointer"
+                src="https://i.ibb.co/12qq3Ly/Add-Server.png"
+              />
 
               {/* Discovery Button */}
-              <Tooltip title="Discover">
-                <Link to="/dashboard/explore">
-                  <img
-                    className="cursor-pointer"
-                    src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
-                  />
-                </Link>
-              </Tooltip>
+              <Link to="/dashboard/explore">
+                <img
+                  className="cursor-pointer"
+                  src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
+                />
+              </Link>
             </div>
           </div>
         </div>
