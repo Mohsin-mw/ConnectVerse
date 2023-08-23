@@ -9,7 +9,7 @@ import msgIcon from "../../assets/icons/messageIcon.svg";
  */
 
 function TopBar() {
-  const [addFriendModalOpen, setAddFriendModalModal] = useState(false);
+  const [addFriendModalOpen, setAddFriendModalOpen] = useState(false);
   return (
     <div className="w-full text-white py-4 px-4 h-16 border-b-raisin-black border-b-1 items-center justify-between flex gap-6">
       {/* User Profile Button : Will be used later to open profile modal */}
@@ -32,14 +32,14 @@ function TopBar() {
             Blocked
           </button>
           <button
-            onClick={() => setAddFriendModalModal(true)}
+            onClick={() => setAddFriendModalOpen(true)}
             className="bg-green rounded text-white py-.5 px-1.5"
           >
             Add Friend
           </button>
           <AddFriendModal
             open={addFriendModalOpen}
-            setOpen={setAddFriendModalModal}
+            setOpen={setAddFriendModalOpen}
           />
         </div>
       </div>

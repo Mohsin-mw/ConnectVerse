@@ -32,3 +32,4 @@ export { default as Icons } from "./shared/Icons.tsx";
 export { default as ServerModal } from "./Dashboard/ServerModal.tsx";
 export { default as Tooltip } from "./shared/Tooltip.tsx";
 export { default as AddFriendModal } from "./Friends/AddFriendModal.tsx";
+export { default as ChannelLink } from "./Server/ChannelLink.tsx";
