@@ -43,15 +43,17 @@ const Sidebar = () => {
   return (
     <div className="hidden lg:flex lg:flex-shrink-0">
       <div className="flex w-[4.5rem] flex-col">
-        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto bg-raisin-black px-2">
+        <div className="flex min-h-0 relative flex-1 bg-raisin-black px-2">
           <div className="flex-1">
             {/* Discord Logo */}
-            <Link
-              to="/dashboard"
-              className="flex items-center justify-center py-4 border-b-dark-charcoal border-b-2"
-            >
-              <img className="h-8 scale-150 w-auto" src={logo} />
-            </Link>
+            <Tooltip title="Dashboard">
+              <Link
+                to="/dashboard"
+                className="flex items-center justify-center py-4 border-b-dark-charcoal border-b-2"
+              >
+                <img className="h-8 scale-150 w-auto" src={logo} />
+              </Link>
+            </Tooltip>
 
             {/* Server Links */}
             <div
@@ -76,19 +78,23 @@ const Sidebar = () => {
                 ))}
 
               {/* Add Server Button */}
-              <img
-                onClick={() => setServer(!server)}
-                className="cursor-pointer"
-                src="https://i.ibb.co/12qq3Ly/Add-Server.png"
-              />
+              <Tooltip title="Create New Server">
+                <img
+                  onClick={() => setServer(!server)}
+                  className="cursor-pointer"
+                  src="https://i.ibb.co/12qq3Ly/Add-Server.png"
+                />
+              </Tooltip>
 
               {/* Discovery Button */}
-              <Link to="/dashboard/explore">
-                <img
-                  className="cursor-pointer"
-                  src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
-                />
-              </Link>
+              <Tooltip title="Discover">
+                <Link to="/dashboard/explore">
+                  <img
+                    className="cursor-pointer"
+                    src="https://i.ibb.co/Jq3Ff6s/Discovery.png"
+                  />
+                </Link>
+              </Tooltip>
             </div>
           </div>
         </div>
