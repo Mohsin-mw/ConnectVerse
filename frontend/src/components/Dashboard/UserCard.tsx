@@ -1,7 +1,7 @@
-import Settings from "../../assets/icons/Settings.svg"; // Import the Settings icon
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { useContext, useState, useEffect } from "react";
-import { UserContext } from "../../context/UserProvider"; // Context for loggedin user
+import Settings from "../../assets/icons/Settings.svg"; // Import the Settings icon
+import { UserContext } from "../../context/UserProvider";
 
 /**
  * UserCard component displays user information and settings icon.
@@ -11,20 +11,7 @@ const UserCard = () => {
   // Fetch user data using the custom hook
   // const { user } = useContext(UserContext);
 
-  interface User {
-    name: string;
-    email: string;
-    pic: string;
-    _id: string;
-  }
-  const [user, setUser] = useState<User>();
-
-  useEffect(() => {
-    const userInfo = localStorage.getItem("ConnectVerseUI");
-    if (userInfo) {
-      setUser(JSON.parse(userInfo));
-    }
-  }, []);
+  const { user } = useContext(UserContext);
 
   return (
     // Render the user card if user data is available

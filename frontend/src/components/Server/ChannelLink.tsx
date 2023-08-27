@@ -7,8 +7,8 @@ import { classNames } from "../../utils/Helpers";
  * It takes same props as Link from react-router-dom and handles active states itself.
  * @param to - Link to the channel
  * @param className - Extra classes for the link
- * @param children - Content 
- * @returns `Link` - From react-router-dom 
+ * @param children - Content
+ * @returns `Link` - From react-router-dom
  */
 function ChannelLink({ className, to, children, ...props }: LinkProps) {
   const location = useLocation();
@@ -19,7 +19,7 @@ function ChannelLink({ className, to, children, ...props }: LinkProps) {
       className={classNames(
         "text-sm gap-2 text-french-gray truncate transition-colors w-full font-medium flex items-center rounded py-1.5 px-2",
         // Active when the current channel is selected
-        location.pathname == to
+        decodeURI(location.pathname) == to
           ? "bg-onyx text-white"
           : "hover:bg-onyx hover:text-white",
         className

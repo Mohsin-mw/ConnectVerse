@@ -3,21 +3,13 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ServerModal, Tooltip } from "..";
 import logo from "../../assets/logo.png";
+import { Server } from "../../common";
 /**
  * Sidebar component that displays navigation links and icons.
  * @component
  */
 const Sidebar = () => {
-  // Hook to receive Servers
-  // const { servers } = useServers();
-  interface Server {
-    channels: Array<{ channelName: string }>;
-    members: string[];
-    owner: string;
-    pic: string;
-    serverName: string;
-    _id: string;
-  }
+  
   const [servers, setServers] = useState<Server[]>([]);
   const [server, setServer] = useState(false);
 
@@ -69,7 +61,7 @@ const Sidebar = () => {
             >
               {servers &&
                 servers.map((server) => (
-                  <Tooltip title={server.serverName}>
+                  <Tooltip key={server._id} title={server.serverName}>
                     <Link
                       key={server._id}
                       to={`/dashboard/servers/${server._id}`}
