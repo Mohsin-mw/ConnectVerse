@@ -1,43 +1,37 @@
 import { Dialog, Transition } from "@headlessui/react";
-import axios from "axios";
-import { Fragment, useState } from "react";
-import { toast } from "react-toastify";
+import React, { Fragment, useState } from "react";
 import { Button, Input } from "..";
+import { Server } from "../../common";
 
-type ServerModalProps = {
-  server: boolean;
+type CreateChannelModalProps = {
+  serverDetails: Server | undefined;
   open?: boolean;
-  setServer: (current: boolean) => void;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const ServerModal = ({ server, setServer }: ServerModalProps) => {
-  const [serverName, setServerName] = useState("");
-  const [loading, setLoading] = useState(false);
+/**
+ *
+ * @param {Object} props - Props needed for CreateChannelModal
+ * @prop {boolean} props.open - Opens on true and closes on false
+ * @prop {React.Dispatch<React.SetStateAction<boolean>>} props.setOpen - handles opening and closing
+ * @prop {Server} props.serverDetails - Details of the discord server
+ * @returns
+ */
+function CreateChannelModal({
+  open,
+  setOpen,
+  serverDetails,
+}: CreateChannelModalProps) {
+  const [channelName, setChannelName] = useState("");
 
-  const createServer = async () => {
-    setLoading(true);
-    try {
-      const { data } = await axios.post(
-        import.meta.env.VITE_BACKEND_URL + "/server/create-server",
-        { serverName },
-        { withCredentials: true }
-      );
-      // console.log(data);
-
-      setLoading(false);
-      toast.success("Server Created", { theme: "dark" });
-      setServer(false);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-      toast.error(error.response.data.error, { theme: "dark" });
-    }
-  };
-
+  async function createChannel() {
+    // LOGIC ABOVE
+    setChannelName("");
+  }
   return (
-    <Transition show={server} as={Fragment}>
+    <Transition show={open} as={Fragment}>
       <Dialog
-        onClose={() => setServer(false)}
+        onClose={() => setOpen(false)}
         className="absolute inset-0 z-10 grid place-items-center"
       >
         <Dialog.Backdrop
@@ -55,35 +49,34 @@ const ServerModal = ({ server, setServer }: ServerModalProps) => {
           <Dialog.Panel className="w-screen transition-transform bg-raisin-black shadow text-white max-w-xl rounded px-4 py-5">
             <div className="text-start mb-6">
               <Dialog.Title className="text-xl font-semibold">
-                Create New Server
+                {serverDetails?.serverName}
               </Dialog.Title>
               <Dialog.Description className="max-w-md text-sm text-french-gray mt-3">
-                Your server is where you and your friends hang out. Make yours
-                and start talking.
+                Create a new text channel.
               </Dialog.Description>
             </div>
             <Input
               id="text"
-              label="Server Name"
+              label="Channel Name"
               type="text"
-              value={serverName}
+              value={channelName}
               className="bg-charleston-Green border-sonic-silver/30 focus:ring focus:ring-primary/20 border focus:border-primary/50 rounded-sm text-white"
               labelClassName="text-white"
-              onChange={(e) => setServerName(e.target.value)}
+              onChange={(e) => setChannelName(e.target.value)}
             />
             <Button
               variant="solid"
               color="primary"
               className="mt-4 w-full"
-              onClick={createServer}
+              onClick={createChannel}
             >
-              Create New Server
+              Create Channel
             </Button>
           </Dialog.Panel>
         </Transition.Child>
       </Dialog>
     </Transition>
   );
-};
+}
 
-export default ServerModal;
+export default CreateChannelModal;

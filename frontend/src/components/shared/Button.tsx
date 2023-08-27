@@ -12,7 +12,6 @@
  * @throws {Error} If an invalid color is provided for the specified variant.
  * @returns {JSX.Element} - The rendered Button component.
  */
-
 import { Link } from "react-router-dom";
 import { ExtractKeys } from "../../common";
 import { classNames } from "../../utils/Helpers";

@@ -1,15 +1,20 @@
 // Servers Type
-export interface Servers {
-  name: string;
-  icon: string;
+export interface Server {
+  channels: Array<{ channelName: string }>;
+  members: string[];
+  owner: string;
+  pic: string;
+  serverName: string;
+  _id: string;
 }
 
 // User Type
 
 export interface User {
   name: string;
-  userName: string;
-  avatar: string;
+  email: string;
+  pic: string;
+  _id: string;
 }
 
 // Direct Messages Type
@@ -44,7 +49,9 @@ export interface ExploreServer {
 }
 
 // FriendRequest Type
-export interface FriendRequest extends Pick<User, "userName" | "avatar"> {
+export interface FriendRequest {
+  userName: string;
+  avatar: string;
   status: "accepted" | "declined";
   date: string;
 }
