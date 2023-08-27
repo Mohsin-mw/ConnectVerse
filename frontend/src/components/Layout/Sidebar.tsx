@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ServerModal, Tooltip } from "..";
 import logo from "../../assets/logo.png";
 /**
@@ -11,7 +11,7 @@ const Sidebar = () => {
   // Hook to receive Servers
   // const { servers } = useServers();
   interface Server {
-    channels: string[];
+    channels: Array<{ channelName: string }>;
     members: string[];
     owner: string;
     pic: string;
@@ -20,6 +20,8 @@ const Sidebar = () => {
   }
   const [servers, setServers] = useState<Server[]>([]);
   const [server, setServer] = useState(false);
+
+  const navigate = useNavigate();
 
   // Fetching servers:
   const fetchServers = async () => {
@@ -33,6 +35,11 @@ const Sidebar = () => {
       setServers(serverData);
     } catch (error) {
       console.log(error);
+      if (error.response.data.error === "No token!") {
+        window.alert("please sign in again");
+        localStorage.removeItem("ConnectVerseUI");
+        navigate("/signin");
+      }
     }
   };
 
