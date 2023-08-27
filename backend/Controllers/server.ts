@@ -47,4 +47,47 @@ const fetchServer = async (req: Request, res: Response) => {
   }
 };
 
-export { createServer, fetchServer };
+// Channels
+const createChannel = async (req: Request, res: Response) => {
+  const { channelName, serverID } = req.body;
+  if (!channelName) return res.status(400).json({ error: "No channel name" });
+  if (!serverID) return res.status(400).json({ error: "No Server ID" });
+
+  const loggedUser = req.user;
+  if (!loggedUser) return res.status(400).json({ error: "User not logged in" });
+
+  try {
+    const server = await Server.findById(serverID);
+    if (!server) return res.status(400).json({ error: "server not found" });
+
+    if (!server.owner.equals(loggedUser._id))
+      return res
+        .status(400)
+        .json({ error: "Only owner can create the channel" });
+
+    server.channels?.push({ channelName });
+    await server.save();
+
+    return res.json({ message: "Channel successfully created", server });
+  } catch (error) {
+    return res.status(400).json({ error });
+  }
+};
+
+const fetchServerDetails = async (req: Request, res: Response) => {
+  const { serverId } = req.params;
+
+  try {
+    const serverDetails = await Server.findById(serverId);
+    if (!serverDetails)
+      return res
+        .status(400)
+        .json({ error: "Server with this server ID doesn't exist" });
+
+    return res.json({ serverDetails });
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
+
+export { createServer, fetchServer, createChannel, fetchServerDetails };
